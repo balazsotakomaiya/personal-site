@@ -16,15 +16,14 @@ export default function Home() {
                     priority
                 />
                 <Summary>
-                    Hey, I’m Balázs. I love building beautiful digital experiences that intersect with real-life. I’ve
+                    Hey, I’m Balázs. I love building beautiful, user-experience-focused digital experiences. I’ve
                     Co-Founded a successful Men’s Jewellery Brand called Ezzra, built a popular mobile app used by tens
-                    of
-                    thousands called PartyPass, all the whilst working on some exciting projects over at Typeform,
-                    Booking.com, PokerStars and more.
+                    of thousands called PartyPass, all the whilst working on some exciting projects as a Software
+                    Engineer over at Typeform, Booking.com, PokerStars and more.
 
                     <Links>
-                        <Link target='_blank' href=''>Blog</Link>
-                        <Link target='_blank' href=''>Resume</Link>
+                        {/*<Link target='_blank' href=''>Blog</Link>*/}
+                        <Link target='_blank' href='/resume.pdf'>Resume</Link>
                         <Link target='_blank' href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>
                     </Links>
                 </Summary>
@@ -54,7 +53,8 @@ export default function Home() {
 
                     <br/> <br/>
 
-                    Launched in mid-2022, we&apos;ve sold thousands of pieces to customers across Hungary, Austria, Slovakia
+                    Launched in mid-2022, we&apos;ve sold thousands of pieces to customers across Hungary, Austria,
+                    Slovakia
                     & Romania.
                 </Paragraph>
             </Section>
@@ -76,7 +76,8 @@ export default function Home() {
             <Section>
                 <Heading>My Career</Heading>
                 <Paragraph>
-                    I&apos;ve been fortunate enough to work with some of the most talented people in the industry, on some
+                    I&apos;ve been fortunate enough to work with some of the most talented people in the industry, on
+                    some
                     truly exciting projects.
 
                     <br/> <br/>
@@ -96,13 +97,17 @@ export default function Home() {
                     <br/> <br/>
 
                     <Link target='_blank' href='https://www.deptagency.com/'>DEPT</Link>, a global digital agency, was
-                    where I&apos;ve had the opportunity to work on a wide variety of projects, including <Link target='_blank' href='https://www.ascot.com/'>Royal Ascot</Link>, <Link
-                    target='_blank' href='https://totum.com/'>TOTUM</Link>, <Link target='_blank' href='https://steamforged.com'>SteamForged</Link>, <Link
+                    where I&apos;ve had the opportunity to work on a wide variety of projects, including <Link
+                    target='_blank' href='https://www.ascot.com/'>Royal Ascot</Link>, <Link
+                    target='_blank' href='https://totum.com/'>TOTUM</Link>, <Link target='_blank'
+                                                                                  href='https://steamforged.com'>SteamForged</Link>, <Link
                     target='_blank' href='https://www.flowtech.co.uk/'>Flowtech</Link>, and more.
 
                     <br/> <br/>
 
-                    That being said, if you&apos;re interested in the nitty-gritty, feel free to check out my <Link target='_blank' href=''>resume</Link> or <Link target='_blank' href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>.
+                    That being said, if you&apos;re interested in the nitty-gritty, feel free to check out my <Link
+                    target='_blank' href='/resume.pdf'>resume</Link> or <Link target='_blank'
+                                                                   href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>.
 
                     {/* todo: timeline */}
                 </Paragraph>
