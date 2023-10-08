@@ -45,35 +45,6 @@ export default function Home() {
             </Section>
 
             <Section>
-                <Heading>Co-Founder of <Link target='_blank' href='https://ezzra.com'>Ezzra</Link></Heading>
-                <Paragraph>
-                    Ezzra is a Men&apos;s Jewellery Design Studio, aiming to create fashionable statement pieces. We
-                    predominantly use Recycled Stainless Steel, to craft long-lasting, durable &
-                    environmentally-conscious jewellery.
-
-                    <br/> <br/>
-
-                    Launched in mid-2022, we&apos;ve sold thousands of pieces to customers across Hungary, Austria,
-                    Slovakia
-                    & Romania.
-                </Paragraph>
-            </Section>
-
-            <Section>
-                <Heading>Co-Founder of <Link target='_blank' href='https://partypass.co'>PartyPass</Link></Heading>
-                <Paragraph>
-                    PartyPass, launched in 2023, is a mobile app that allows you to plan your night out in
-                    Budapest with complete confidence.
-
-                    <br/> <br/>
-
-                    We&apos;ve partnered with every major nightclub & bar in the city, to provide you with the best,
-                    yet importantly unbiased nightlife guide available – with up to date information on events happening
-                    real-time.
-                </Paragraph>
-            </Section>
-
-            <Section>
                 <Heading>My Career</Heading>
                 <Paragraph>
                     I&apos;ve been fortunate enough to work with some of the most talented people in the industry, on
@@ -107,9 +78,38 @@ export default function Home() {
 
                     That being said, if you&apos;re interested in the nitty-gritty, feel free to check out my <Link
                     target='_blank' href='/resume.pdf'>resume</Link> or <Link target='_blank'
-                                                                   href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>.
+                                                                              href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>.
 
                     {/* todo: timeline */}
+                </Paragraph>
+            </Section>
+
+            <Section>
+                <Heading>Co-Founder of <Link target='_blank' href='https://ezzra.com'>Ezzra</Link></Heading>
+                <Paragraph>
+                    Ezzra is a Men&apos;s Jewellery Design Studio, aiming to create fashionable statement pieces. We
+                    predominantly use Recycled Stainless Steel, to craft long-lasting, durable &
+                    environmentally-conscious jewellery.
+
+                    <br/> <br/>
+
+                    Launched in mid-2022, we&apos;ve sold thousands of pieces to customers across Hungary, Austria,
+                    Slovakia
+                    & Romania.
+                </Paragraph>
+            </Section>
+
+            <Section>
+                <Heading>Co-Founder of <Link target='_blank' href='https://partypass.co'>PartyPass</Link></Heading>
+                <Paragraph>
+                    PartyPass, launched in 2023, is a mobile app that allows you to plan your night out in
+                    Budapest with complete confidence.
+
+                    <br/> <br/>
+
+                    We&apos;ve partnered with every major nightclub & bar in the city, to provide you with the best,
+                    yet importantly unbiased nightlife guide available – with up to date information on events happening
+                    real-time.
                 </Paragraph>
             </Section>
         </Container>
@@ -119,11 +119,9 @@ export default function Home() {
 const Container = styled.main`
   max-width: 800px;
   margin: 0 auto;
-  padding: 40px 20px; // Optional padding to prevent content from touching the edges on smaller screens
 
   @media (max-width: 800px) {
     width: 100%;
-    padding: 40px 8px;
   }
 `;
 
