@@ -25,6 +25,7 @@ export default function Home() {
                         {/*<Link target='_blank' href=''>Blog</Link>*/}
                         <Link target='_blank' href='/resume.pdf'>Resume</Link>
                         <Link target='_blank' href='https://www.linkedin.com/in/heyitsbalazs/'>LinkedIn</Link>
+                        <Link target='_blank' href='mailto:balazs@otakomaiya.com'>Contact</Link>
                     </Links>
                 </Summary>
             </Header>
