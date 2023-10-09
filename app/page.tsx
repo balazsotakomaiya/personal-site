@@ -101,7 +101,14 @@ export default function Home() {
             </Section>
 
             <Section>
-                <Heading>Co-Founder of <Link target='_blank' href='https://partypass.co'>PartyPass</Link></Heading>
+                <Heading>Co-Founder of&nbsp;
+                    <Link
+                        target='_blank'
+                        href='https://apps.apple.com/us/app/partypass/id6450241816'
+                    >
+                        PartyPass
+                    </Link>
+                </Heading>
                 <Paragraph>
                     PartyPass, launched in 2023, is a mobile app that allows you to plan your night out in
                     Budapest with complete confidence.
