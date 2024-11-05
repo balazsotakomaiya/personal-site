@@ -49,7 +49,7 @@ export default function Home() {
 
                     <br/> <br/>
 
-                    Most recently, I've had the opportunity to deep-dive into building cross-platform apps
+                    Most recently, I’ve had the opportunity to deep-dive into building cross-platform apps
                     with <b>Flutter </b> in a large-scale, enterprise project for the largest bank in Hungary.
                 </Paragraph>
             </Section>
