@@ -22,7 +22,7 @@ export default function Home() {
 
                     <br/> <br/>
 
-                    Currently building a cross-platform (iOS, Android, Web) a retail investment app at OTP Bank with
+                    Currently building a cross-platform (iOS, Android, Web) retail investment app at OTP Bank with
                     Flutter.
 
                     <Links>
