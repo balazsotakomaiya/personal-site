@@ -17,7 +17,7 @@ export default function Home() {
                 />
                 <Summary>
                     Hey, I’m Balázs. I love building beautiful, user-experience-focused digital experiences. I’ve
-                    Co-Founded a successful Men’s Jewellery Brand called Ezzra all the whilst working on some exciting
+                    Co-Founded a successful Men’s Jewellery Brand called EZZRA all the whilst working on some exciting
                     projects as a Software Engineer over at Typeform, Booking.com, PokerStars and more.
 
                     <br/> <br/>
@@ -43,9 +43,9 @@ export default function Home() {
 
                     <br/> <br/>
 
-                    Having have fallen in love with <b>React</b> & <b>TypeScript</b>, I’ve been using them to create
-                    beautiful, performant
-                    and scalable web applications for the past 6 years.
+                    Having fallen in love with <b>React</b> & <b>TypeScript</b>, I’ve been using them to create
+                    beautiful, performant, and scalable web applications for the past 6 years, out of my 8 years of
+                    professional coding experience.
 
                     <br/> <br/>
 
@@ -58,8 +58,7 @@ export default function Home() {
                 <Heading>My Career</Heading>
                 <Paragraph>
                     I&apos;ve been fortunate enough to work with some of the most talented people in the industry, on
-                    some
-                    truly exciting projects.
+                    some truly exciting projects.
 
                     <br/> <br/>
 
@@ -95,7 +94,7 @@ export default function Home() {
             </Section>
 
             <Section>
-                <Heading>Co-Founder of <Link target='_blank' href='https://ezzra.com'>Ezzra</Link></Heading>
+                <Heading>Founder of <Link target='_blank' href='https://ezzra.com'>EZZRA</Link></Heading>
                 <Paragraph>
                     Ezzra is a Men&apos;s Jewellery Design Studio, aiming to create fashionable statement pieces. We
                     predominantly use Recycled Stainless Steel, to craft long-lasting, durable &
@@ -104,8 +103,7 @@ export default function Home() {
                     <br/> <br/>
 
                     Launched in mid-2022, we&apos;ve sold thousands of pieces to customers across Hungary, Austria,
-                    Slovakia
-                    & Romania.
+                    Slovakia & Romania.
                 </Paragraph>
             </Section>
         </Container>
