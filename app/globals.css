@@ -7,6 +7,10 @@
     --color-custom-cream: #F5F1E8;
     --color-custom-brown: #67532F;
     --color-custom-gray: #333333;
+
+    --font-sans: "koulen", ui-sans-serif;
+    --font-serif: "pinyonScript", serif;
+    --font-mono: "robotoMono", ui-monospace;
 }
 
 .noise:before {
