@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const koulen = localFont({
+    src: './assets/fonts/koulen-regular.ttf',
+    display: 'swap',
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const pinyonScript = localFont({
+    src: './assets/fonts/pinyon-script-regular.ttf',
+    display: 'swap',
+})
+
+const robotoMono = localFont({
+    src: './assets/fonts/roboto-mono-variable.ttf',
+    display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-lvh h-full w-full relative noise bg-gradient-to-br from-custom-green-400 to-custom-green`}
+        className={`${koulen} ${pinyonScript} ${robotoMono} antialiased min-h-lvh h-full w-full relative noise bg-gradient-to-br from-custom-green-400 to-custom-green`}
       >
         {children}
       </body>
