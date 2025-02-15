@@ -4,7 +4,7 @@ import portrait from '@/public/assets/images/portrait.png';
 
 export const Portrait: React.FC = () => {
     return (
-        <div className='relative'>
+        <div className='relative mr-2 lg:mr-3'>
             <Image
                 className='relative z-20 rounded-md lg:rounded-none w-full h-full lg:w-128 3xl:w-168'
                 src={portrait}

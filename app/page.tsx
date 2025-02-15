@@ -10,7 +10,7 @@ export default function Home() {
 
             <HeroSection/>
 
-            <div className='mb-64'/>
+            <div className='mb-24 lg:mb-64'/>
 
             <ServicesSection />
         </Fragment>

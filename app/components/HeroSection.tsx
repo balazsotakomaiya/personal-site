@@ -8,7 +8,7 @@ export const HeroSection: React.FC = () => {
         <div>
             <Heading>
                 &nbsp;A Senior Frontend Engineer <Heading.DesktopLinebreak/>
-                &nbsp;<Heading.Serif>from</Heading.Serif>budapest&nbsp;<Heading.DesktopLinebreak/>building
+                &nbsp;<Heading.Serif>from&nbsp;</Heading.Serif>budapest&nbsp;<Heading.DesktopLinebreak/>building
                 a <Heading.Serif>beautiful&nbsp;</Heading.Serif><Heading.DesktopLinebreak/>internet
             </Heading>
 
