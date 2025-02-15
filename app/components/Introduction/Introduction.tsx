@@ -8,6 +8,7 @@ export const Introduction: React.FC = () => {
                 Born in Budapest, my path wound through Manchester's tech scene for five years before returning to Hungary's
                 capital. With a BSc in Computer Science & Business from The Open University, I've driven digital
                 transformation for global brands like JBL, Booking.com, Typeform, and PokerStars. But code isn't my only
+                {/* todo: Link to EZZRA */}
                 passion – I founded EZZRA, a genderless jewelry brand challenging jewellery norms.
 
                 <br /><br />
