@@ -5,7 +5,7 @@ export const HeroTitle: React.FC = () => {
 
     return (
         <div className='flex align-middle mt-10 mb-8'>
-            <span className='text-custom-cream text-3xl/11 lg:text-7xl/20'>
+            <span className='text-custom-cream text-3xl/11 lg:text-8xl/28 3xl:text-9xl/40'>
                 &nbsp;A Senior Frontend Engineer {desktopLineBreak}
                 &nbsp;<span className='font-serif text-custom-gold pr-1'>from</span> budapest&nbsp;{desktopLineBreak}
                 building a <span className='font-serif text-custom-gold pr-1'>beautiful</span> {desktopLineBreak}
