@@ -16,6 +16,18 @@ export const ServicesSection: React.FC = () => {
                 That make users<Heading.Linebreak/>
                 fall in <Heading.Serif>love</Heading.Serif>
             </Heading>
+
+            <div className='size-250 relative m-auto'>
+                <div
+                    className="grainy-glass-card relative z-20 size-250 bg-white/16 rounded-3xl backdrop-blur-2xl border border-white/30">
+
+                </div>
+
+                <div className="z-10 rotate-4 absolute left-0 right-0 bottom-0 top-0 size-250 bg-custom-gold rounded-3xl m-auto">
+
+                </div>
+            </div>
+
         </div>
     )
 }
