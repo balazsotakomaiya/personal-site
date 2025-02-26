@@ -6,11 +6,15 @@ import {Heading} from "@/app/components/Heading/Heading";
 export const HeroSection: React.FC = () => {
     return (
         <div>
+            <div className='mt-10'/>
+
             <Heading>
-                &nbsp;A Senior Frontend Engineer <Heading.DesktopLinebreak/>
+                &nbsp;&nbsp;A Senior Frontend Engineer <Heading.DesktopLinebreak/>
                 &nbsp;<Heading.Serif>from&nbsp;</Heading.Serif>budapest&nbsp;<Heading.DesktopLinebreak/>building
                 a <Heading.Serif>beautiful&nbsp;</Heading.Serif><Heading.DesktopLinebreak/>internet
             </Heading>
+
+            <div className='mt-10'/>
 
             <div className='flex flex-col lg:hidden'>
                 <Portrait/>
