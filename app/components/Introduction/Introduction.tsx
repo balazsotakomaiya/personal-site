@@ -12,7 +12,7 @@ export const Introduction: React.FC = () => {
                 simultaneously completed my BSc in Computer Science & Business from The Open University.
 
                 <br/><br/>
-                
+
                 At 20, I{/* todo: Link to EZZRA */} founded EZZRA, a genderless jewelry brand. Today, I'm a Senior Frontend
                 Engineer at OTP Bank, the largest bank in Central and Eastern Europe.
 

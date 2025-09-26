@@ -66,10 +66,10 @@ export const ServicesSection: React.FC = () => {
                             <AbstractIcon3
                                 className='fill-custom-gray w-24 h-full'
                             />
-                            <h4 className='text-xl lg:text-2xl text-custom-gray'>Creative Direction</h4>
+                            <h4 className='text-xl lg:text-2xl text-custom-gray'>Accessibility Consultancy</h4>
                             <p className='font-mono tracking-tight text-sm text-custom-gray'>
-                                That transcends platforms, from fashion campaigns to crafting breathtaking digital
-                                experiences and design systems.
+                                Audits, remediation, and guidance to meet WCAG 2.1 AA and EEA accessibility standards on
+                                web and mobile.
                             </p>
                         </div>
 
