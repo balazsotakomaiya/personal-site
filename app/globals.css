@@ -28,6 +28,54 @@ body {
     overflow-x: hidden;
 }
 
+/* Animated grain effect */
+@keyframes animateGrain {
+    0%, 100% { 
+        transform: translate(0, 0); 
+    }
+    10% {
+        transform: translate(-5%, -10%);
+    }
+    20% {
+        transform: translate(-15%, -20%);
+    }
+    30% {
+        transform: translate(-5%, -10%);
+    }
+    40% {
+        transform: translate(-15%, -20%);
+    }
+    50% {
+        transform: translate(-5%, -10%);
+    }
+    60% {
+        transform: translate(-15%, -20%);
+    }
+    70% {
+        transform: translate(-5%, -10%);
+    }
+    80% {
+        transform: translate(-15%, -20%);
+    }
+    90% {
+        transform: translate(-5%, -10%);
+    }
+}
+
+.grain-overlay::after {
+    content: "";
+    background-image: url("/assets/images/grain.png");
+    height: 300%;
+    width: 300%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.04;
+    animation: animateGrain 8s steps(10) infinite;
+    pointer-events: none;
+    z-index: 25;
+}
+
 /*TODO: this doesn't quite match the effect I was able to create in figma*/
 .grainy-glass-card {
     background-image: url("/public/assets/images/noise.png"),
