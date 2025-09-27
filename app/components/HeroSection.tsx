@@ -9,33 +9,46 @@ export const HeroSection: React.FC = () => {
             <div className='mt-10'/>
 
             {/* Desktop Heading */}
-            <Heading className="hidden lg:block">
-                &nbsp;&nbsp;A Senior Frontend Engineer<br/>
-                <span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest<br/>building
-                a <Heading.Serif>beautiful </Heading.Serif><br/>internet
-            </Heading>
+            <Heading 
+                className="hidden lg:block" 
+                animated={true} 
+                lines={[
+                    <>A Senior Frontend Engineer</>,
+                    <><span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest</>,
+                    <>building a <Heading.Serif>beautiful </Heading.Serif></>,
+                    <>internet</>
+                ]}
+            />
 
             {/* Mobile Heading */}
-            <Heading className="block lg:hidden">
-                A Sr Frontend Engineer<br/>
-                <span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest, building<br/>
-                a <Heading.Serif>beautiful </Heading.Serif>internet
-            </Heading>
+            <Heading 
+                className="block lg:hidden" 
+                animated={true}
+                lines={[
+                    <>A Sr Frontend Engineer</>,
+                    <><span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest, building</>,
+                    <>a <Heading.Serif>beautiful </Heading.Serif>internet</>
+                ]}
+            />
 
             <div className='mt-10'/>
 
             <div className='flex flex-col lg:hidden'>
-                <Portrait/>
+                <div className="animate-fade-up animate-delay-800">
+                    <Portrait/>
+                </div>
                 <div className='mb-12'/>
-                <Introduction/>
+                <div className="animate-fade-up animate-delay-1000">
+                    <Introduction/>
+                </div>
             </div>
 
             <div className='hidden lg:flex items-end justify-end gap-12'>
-                <div className="w-80">
+                <div className="w-80 animate-fade-up animate-delay-800">
                     <Introduction/>
                 </div>
 
-                <div className='flex-none w-max'>
+                <div className='flex-none w-max animate-fade-up animate-delay-1000'>
                     <Portrait/>
                 </div>
             </div>

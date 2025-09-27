@@ -85,3 +85,85 @@ body {
     background-repeat: repeat, no-repeat;
     background-blend-mode: overlay, normal;
 }
+
+@keyframes textReveal {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text reveal wrapper - creates the "window" effect */
+.text-reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.text-reveal-line {
+    overflow: hidden;
+    display: block;
+}
+
+.text-reveal-content {
+    display: inline-block;
+    animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    transform: translateY(100%);
+}
+
+.animate-fade-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.animate-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animate-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animate-delay-600 {
+    animation-delay: 0.6s;
+}
+
+.animate-delay-800 {
+    animation-delay: 0.8s;
+}
+
+.animate-delay-1000 {
+    animation-delay: 1.0s;
+}
+
+.animate-delay-1200 {
+    animation-delay: 1.2s;
+}
+
+.animate-delay-1400 {
+    animation-delay: 1.4s;
+}
+
+.animate-delay-1600 {
+    animation-delay: 1.6s;
+}
+
+.animate-delay-1800 {
+    animation-delay: 1.8s;
+}
+
+.animate-delay-2000 {
+    animation-delay: 2.0s;
+}

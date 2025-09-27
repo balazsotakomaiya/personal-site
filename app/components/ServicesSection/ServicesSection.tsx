@@ -7,16 +7,17 @@ export const ServicesSection: React.FC = () => {
         <div>
             <Heading
                 alignment="center"
+                lines={[
+                    <>Building experiences</>,
+                    <>That make users</>,
+                    <>fall in <Heading.Serif>love</Heading.Serif></>
+                ]}
                 subheading={
                     <Heading.Subheading>
                         ..and competitors loose sleep
                     </Heading.Subheading>
                 }
-            >
-                Building experiences<Heading.Linebreak/>
-                That make users<Heading.Linebreak/>
-                fall in <Heading.Serif>love</Heading.Serif>
-            </Heading>
+            />
 
             <div className='mb-16 lg:mb-32'/>
 
@@ -26,15 +27,17 @@ export const ServicesSection: React.FC = () => {
                     <Heading
                         alignment="left"
                         className='text-custom-gray'
-                    >
-                        Expertise <Heading.Serif className='text-custom-gray'>and</Heading.Serif>
-                    </Heading>
+                        lines={[
+                            <>Expertise <Heading.Serif className='text-custom-gray'>and</Heading.Serif></>
+                        ]}
+                    />
                     <Heading
                         alignment="right"
                         className='text-custom-gray'
-                    >
-                        Services
-                    </Heading>
+                        lines={[
+                            <>Services</>
+                        ]}
+                    />
 
                     <div className='mb-8'/>
 

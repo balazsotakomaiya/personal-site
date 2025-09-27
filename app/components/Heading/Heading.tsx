@@ -1,10 +1,12 @@
 import React from "react";
 
 interface HeadingProps {
-    children: React.ReactNode;
+    lines: React.ReactNode[];
     alignment?: 'left' | 'center' | 'right';
     subheading?: React.ReactNode;
     className?: string;
+    animated?: boolean;
+    delay?: number;
 }
 
 interface SerifProps {
@@ -43,16 +45,47 @@ export const Heading: React.FC<HeadingProps> & {
     MobileLinebreak: React.FC;
     Linebreak: React.FC;
     Subheading: React.FC<SubheadingProps>;
-} = ({children, alignment = 'left', subheading, className}) => {
+} = ({lines, alignment = 'left', subheading, className, animated = false, delay = 0}) => {
     const alignmentClasses = alignment === 'center'
         ? 'text-center justify-center' : alignment === 'right'
             ? 'text-right justify-end' : 'text-left justify-start';
 
+    const getDelayClass = (index: number) => {
+        if (index === 0) return '';
+        const delayMs = index * 200;
+        return `animate-delay-${delayMs}`;
+    };
+
+    if (animated) {
+        return (
+            <div className={`flex flex-col align-middle ${alignmentClasses} ${className}`}>
+                <div className={`text-custom-cream text-4xl/11 lg:text-8xl/28 3xl:text-9xl/36 ${className}`}>
+                    {lines.map((line, lineIndex) => (
+                        <div key={`line-${lineIndex}`} className="text-reveal-line">
+                            <span className={`text-reveal-content ${getDelayClass(lineIndex)}`}>
+                                {line}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+                {subheading && (
+                    <div className={`animate-fade-up animate-delay-${(lines.length + 1) * 200}`}>
+                        <Subheading className={className}>{subheading}</Subheading>
+                    </div>
+                )}
+            </div>
+        );
+    }
+
     return (
         <div className={`flex flex-col align-middle ${alignmentClasses} ${className}`}>
-            <span className={`text-custom-cream text-4xl/11 lg:text-8xl/28 3xl:text-9xl/36 ${className}`}>
-                {children}
-            </span>
+            <div className={`text-custom-cream text-4xl/11 lg:text-8xl/28 3xl:text-9xl/36 ${className}`}>
+                {lines.map((line, lineIndex) => (
+                    <div key={`line-${lineIndex}`}>
+                        {line}
+                    </div>
+                ))}
+            </div>
             {subheading && <Subheading className={className}>{subheading}</Subheading>}
         </div>
     );
