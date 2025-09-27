@@ -50,7 +50,7 @@ export const Heading: React.FC<HeadingProps> & {
 
     return (
         <div className={`flex flex-col align-middle ${alignmentClasses} ${className}`}>
-            <span className={`text-custom-cream text-3xl/11 lg:text-8xl/28 3xl:text-9xl/36 ${className}`}>
+            <span className={`text-custom-cream text-4xl/11 lg:text-8xl/28 3xl:text-9xl/36 ${className}`}>
                 {children}
             </span>
             {subheading && <Subheading className={className}>{subheading}</Subheading>}
