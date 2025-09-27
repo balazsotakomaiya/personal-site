@@ -8,10 +8,18 @@ export const HeroSection: React.FC = () => {
         <div>
             <div className='mt-10'/>
 
-            <Heading>
-                &nbsp;&nbsp;A Senior Frontend Engineer <Heading.DesktopLinebreak/>
-                &nbsp;<Heading.Serif>from&nbsp;</Heading.Serif>budapest&nbsp;<Heading.DesktopLinebreak/>building
-                a <Heading.Serif>beautiful&nbsp;</Heading.Serif><Heading.DesktopLinebreak/>internet
+            {/* Desktop Heading */}
+            <Heading className="hidden lg:block">
+                &nbsp;&nbsp;A Senior Frontend Engineer<br/>
+                <span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest<br/>building
+                a <Heading.Serif>beautiful </Heading.Serif><br/>internet
+            </Heading>
+
+            {/* Mobile Heading */}
+            <Heading className="block lg:hidden">
+                A Sr Frontend Engineer<br/>
+                <span className="inline-block w-2"></span><Heading.Serif>from </Heading.Serif>budapest, building<br/>
+                a <Heading.Serif>beautiful </Heading.Serif>internet
             </Heading>
 
             <div className='mt-10'/>
