@@ -9,7 +9,7 @@ Building and improving in public.
 - [ ] Add projects / case studies
 - [ ] Blog posts
 - [ ] Add contact section
-- [ ] Reword introduction, sounds horribly pretentious
+- [x] Reword introduction, sounds horribly pretentious
 - [ ] Fix hero font overflow
 - [ ] Improve frosted glass friend cards
 - [ ] Shuffle pokerstarts and skybet next to each other
