@@ -12,11 +12,11 @@ export const ServicesSection: React.FC = () => {
                     <>That make users</>,
                     <>fall in <Heading.Serif>love</Heading.Serif></>
                 ]}
-                subheading={
-                    <Heading.Subheading>
-                        ..and competitors loose sleep
-                    </Heading.Subheading>
-                }
+                // subheading={
+                //     <Heading.Subheading>
+                //         ..and competitors loose sleep
+                //     </Heading.Subheading>
+                // }
             />
 
             <div className='mb-16 lg:mb-32'/>

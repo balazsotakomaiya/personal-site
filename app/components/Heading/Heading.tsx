@@ -45,7 +45,7 @@ export const Heading: React.FC<HeadingProps> & {
     MobileLinebreak: React.FC;
     Linebreak: React.FC;
     Subheading: React.FC<SubheadingProps>;
-} = ({lines, alignment = 'left', subheading, className, animated = false, delay = 0}) => {
+} = ({lines, alignment = 'left', subheading, className, animated = false}) => {
     const alignmentClasses = alignment === 'center'
         ? 'text-center justify-center' : alignment === 'right'
             ? 'text-right justify-end' : 'text-left justify-start';

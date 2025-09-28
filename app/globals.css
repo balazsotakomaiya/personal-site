@@ -14,6 +14,8 @@
     --font-sans: "koulen", ui-sans-serif;
     --font-serif: "pinyonScript", serif;
     --font-mono: "robotoMono", ui-monospace;
+
+    --gradient-radial: radial-gradient(circle, var(--tw-gradient-stops));
 }
 
 .noise:before {
@@ -78,14 +80,15 @@ body {
 }
 
 /*TODO: this doesn't quite match the effect I was able to create in figma*/
-.grainy-glass-card {
-    background-image: url("/public/assets/images/noise.png"),
+/* .grainy-glass-card {
+    background-image: url("/assets/images/noise.png"),
     radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
     background-size: 154px 154px, auto;
     background-position: 0 0, center;
     background-repeat: repeat, no-repeat;
     background-blend-mode: overlay, normal;
-}
+} */
+
 
 @keyframes textReveal {
     0% {
