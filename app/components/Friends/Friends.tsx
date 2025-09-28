@@ -39,46 +39,46 @@ const Friends: React.FC = () => {
       </div>
       
       {/* Friend Cards */}
-      <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
+      <div className="flex flex-wrap justify-center gap-8 md:gap-12 lg:gap-10 xl:gap-16">
         <FriendCard 
           logo="/assets/images/logos/1.png" 
           alt="JBL logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/2.png" 
           alt="Booking.com logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/3.png" 
           alt="Typeform logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/4.png" 
           alt="Royal Ascot logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/5.png" 
           alt="Skybet logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/6.png" 
           alt="OTP Bank logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/7.png" 
           alt="TOTUM logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
         <FriendCard 
           logo="/assets/images/logos/8.png" 
           alt="PokerStars logo"
-          className="w-full lg:w-[calc(33.333%-2.667rem)]"
+          className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.667rem)] xl:w-[calc(25%-3rem)]"
         />
       </div>
     </div>
