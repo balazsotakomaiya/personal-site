@@ -4,6 +4,20 @@ import FriendCard from "./FriendCard";
 const Friends: React.FC = () => {
   return (
     <div className="space-y-12">
+      {/* Mobile header - centered */}
+      <div className="flex justify-center lg:hidden">
+        <Heading
+          alignment="center"
+          lines={[
+            <>Meet some of</>,
+            <>
+              my <Heading.Serif>friends</Heading.Serif>
+            </>,
+          ]}
+        />
+      </div>
+      
+      {/* Desktop headers - left and right */}
       <div className="hidden lg:flex lg:flex-row lg:justify-between">
         <Heading
           lines={[
