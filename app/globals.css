@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
 
 @theme {
     --color-custom-green: #1E4E33;
