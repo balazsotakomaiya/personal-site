@@ -13,7 +13,7 @@ const FriendCard: React.FC<FriendCardProps> = ({
   className = "" 
 }) => {
   return (
-    <div className={`friend-card relative rounded-[3rem] w-1/3 aspect-[3/2] bg-white/10 backdrop-blur-[3px] border border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)] overflow-hidden ${className}`}>
+    <div className={`friend-card relative rounded-2xl w-1/3 aspect-[3/2] bg-white/10 backdrop-blur-[3px] border border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)] overflow-hidden ${className}`}>
       {/* Content */}
       <div className="relative z-10 p-6 flex items-center justify-center h-full">
         <Image
