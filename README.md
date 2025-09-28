@@ -4,7 +4,7 @@ Building and improving in public.
 
 ## Todos
 
-- [ ] Custom cursor
+- [x] Custom cursor
 - [ ] Add services section
 - [ ] Add projects / case studies
 - [ ] Blog posts

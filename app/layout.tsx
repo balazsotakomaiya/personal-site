@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ReactLenis } from 'lenis/react'
+import { CursorCircle } from './components/CursorCircle/CursorCircle'
 
 const koulen = localFont({
   src: "../public/assets/fonts/koulen-regular.ttf",
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body
         className={`${koulen} ${pinyonScript} ${robotoMono} antialiased min-h-lvh h-full w-full relative noise bg-gradient-to-br from-custom-green-400 to-custom-green`}
       >
+        <CursorCircle />
         <div className="p-6">{children}</div>
       </body>
     </html>
