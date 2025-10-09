@@ -1,8 +1,173 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+@theme {
+    --color-custom-green: #1E4E33;
+    --color-custom-green-400: #1e5136;
+    --color-custom-gold: #BFAF80;
+    --color-custom-cream: #F5F1E8;
+    --color-custom-brown: #67532F;
+    --color-custom-gray: #333333;
+
+    --breakpoint-3xl: 120rem;
+
+    --font-sans: "koulen", ui-sans-serif;
+    --font-serif: "pinyonScript", serif;
+    --font-mono: "robotoMono", ui-monospace;
+
+    --gradient-radial: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.noise:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeBlend mode='screen'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+}
+
 body {
-    margin: 0;
-    padding: 40px 20px;
-    background: #f6f5ed;
-    font-family: var(--font-inter);
-    --paragraph-color: #2a2a2a;
-    --link-color: #bd0202;
+    overflow-x: hidden;
+}
+
+/* Animated grain effect */
+@keyframes animateGrain {
+    0%, 100% { 
+        transform: translate(0, 0); 
+    }
+    10% {
+        transform: translate(-5%, -10%);
+    }
+    20% {
+        transform: translate(-15%, -20%);
+    }
+    30% {
+        transform: translate(-5%, -10%);
+    }
+    40% {
+        transform: translate(-15%, -20%);
+    }
+    50% {
+        transform: translate(-5%, -10%);
+    }
+    60% {
+        transform: translate(-15%, -20%);
+    }
+    70% {
+        transform: translate(-5%, -10%);
+    }
+    80% {
+        transform: translate(-15%, -20%);
+    }
+    90% {
+        transform: translate(-5%, -10%);
+    }
+}
+
+.grain-overlay::after {
+    content: "";
+    background-image: url("/assets/images/grain.png");
+    height: 300%;
+    width: 300%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.04;
+    animation: animateGrain 8s steps(10) infinite;
+    pointer-events: none;
+    z-index: 25;
+}
+
+/*TODO: this doesn't quite match the effect I was able to create in figma*/
+/* .grainy-glass-card {
+    background-image: url("/assets/images/noise.png"),
+    radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
+    background-size: 154px 154px, auto;
+    background-position: 0 0, center;
+    background-repeat: repeat, no-repeat;
+    background-blend-mode: overlay, normal;
+} */
+
+
+@keyframes textReveal {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text reveal wrapper - creates the "window" effect */
+.text-reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.text-reveal-line {
+    overflow: hidden;
+    display: block;
+}
+
+.text-reveal-content {
+    display: inline-block;
+    animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    transform: translateY(100%);
+}
+
+.animate-fade-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.animate-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animate-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animate-delay-600 {
+    animation-delay: 0.6s;
+}
+
+.animate-delay-800 {
+    animation-delay: 0.8s;
+}
+
+.animate-delay-1000 {
+    animation-delay: 1.0s;
+}
+
+.animate-delay-1200 {
+    animation-delay: 1.2s;
+}
+
+.animate-delay-1400 {
+    animation-delay: 1.4s;
+}
+
+.animate-delay-1600 {
+    animation-delay: 1.6s;
+}
+
+.animate-delay-1800 {
+    animation-delay: 1.8s;
+}
+
+.animate-delay-2000 {
+    animation-delay: 2.0s;
 }

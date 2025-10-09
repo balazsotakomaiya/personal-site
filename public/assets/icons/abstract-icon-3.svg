@@ -1,0 +1,6 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.46589e-09 180L1.23294e-09 135C24.8 135 45 114.9 45 90L90 90C90 139.7 49.7 180 2.46589e-09 180Z" fill="currentColor"/>
+<path d="M90 90L135 90C135 114.8 155.1 135 180 135L180 180C130.3 180 90 139.7 90 90Z" fill="currentColor"/>
+<path d="M2.46589e-09 90L1.23294e-09 45C24.8 45 45 24.9 45 -1.23294e-09L90 -2.46589e-09C90 49.7 49.7 90 2.46589e-09 90Z" fill="currentColor"/>
+<path d="M90 0L135 -1.23294e-09C135 24.8 155.1 45 180 45L180 90C130.3 90 90 49.7 90 0Z" fill="currentColor"/>
+</svg>
