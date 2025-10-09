@@ -87,6 +87,10 @@ html {
   @apply my-4 text-neutral-800 dark:text-neutral-200;
 }
 
+.prose blockquote {
+  @apply border-l-4 border-neutral-300 dark:border-neutral-700 pl-4 py-2 my-4 italic text-neutral-700 dark:text-neutral-300;
+}
+
 .prose h1 {
   @apply text-4xl font-medium tracking-tight mt-6 mb-2;
 }
