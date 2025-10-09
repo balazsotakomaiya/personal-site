@@ -14,7 +14,7 @@ export default function Page() {
           alt="Balázs Otakomaiya"
           width={200}
           height={200}
-          className="rounded-full"
+          className="rounded-2xl md:rounded-full"
           priority
         />
         <div className="flex-1">
@@ -28,11 +28,15 @@ export default function Page() {
             Currently building a cross-platform (iOS, Android, Web) retail investment app at OTP Bank with Flutter.
           </p>
           <div className="flex gap-4 flex-wrap">
-            <a href="/resume.pdf" target="_blank" className="underline">Resume</a>
             <a href="https://www.linkedin.com/in/heyitsbalazs/" target="_blank" rel="noopener noreferrer" className="underline">LinkedIn</a>
             <a href="mailto:balazs@otakomaiya.com" className="underline">Contact</a>
           </div>
         </div>
+      </div>
+
+      <div className="my-8">
+        <h2 className="font-semibold text-xl mb-4 tracking-tighter">Recent Posts</h2>
+        <BlogPosts />
       </div>
 
       <div className="mb-8">
@@ -78,7 +82,7 @@ export default function Page() {
           <a href="https://www.flowtech.co.uk/" target="_blank" rel="noopener noreferrer" className="underline"> Flowtech</a>, and more.
         </p>
         <p className="mb-4">
-          That being said, if you're interested in the nitty-gritty, feel free to check out my <a href="/resume.pdf" target="_blank" className="underline">resume</a> or 
+          That being said, if you're interested in the nitty-gritty, feel free to check out my 
           <a href="https://www.linkedin.com/in/heyitsbalazs/" target="_blank" rel="noopener noreferrer" className="underline"> LinkedIn</a>.
         </p>
       </div>
@@ -96,11 +100,6 @@ export default function Page() {
           Launched in mid-2022, we've sold thousands of pieces to customers across Hungary, Austria, 
           Slovakia & Romania.
         </p>
-      </div>
-
-      <div className="my-8">
-        <h2 className="font-semibold text-xl mb-4 tracking-tighter">Recent Posts</h2>
-        <BlogPosts />
       </div>
     </section>
   )
