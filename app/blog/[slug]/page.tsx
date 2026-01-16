@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
+import { Vinyl } from 'app/components/vinyl'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -84,6 +85,13 @@ export default async function Blog({ params }) {
           }),
         }}
       />
+      {post.metadata.vinylTitle && post.metadata.vinylArtist && post.metadata.vinylImage && (
+        <Vinyl 
+          title={post.metadata.vinylTitle} 
+          artist={post.metadata.vinylArtist} 
+          image={post.metadata.vinylImage} 
+        />
+      )}
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>

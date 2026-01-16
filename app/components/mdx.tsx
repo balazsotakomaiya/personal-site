@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
-import { VinylVariant1 } from './vinyl-variants'
+import { Vinyl } from './vinyl'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -98,7 +98,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
-  VinylVariant1,
+  Vinyl,
 }
 
 export function CustomMDX(props) {
