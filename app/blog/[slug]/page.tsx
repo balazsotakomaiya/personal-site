@@ -89,7 +89,8 @@ export default async function Blog({ params }) {
         <Vinyl 
           title={post.metadata.vinylTitle} 
           artist={post.metadata.vinylArtist} 
-          image={post.metadata.vinylImage} 
+          image={post.metadata.vinylImage}
+          spotifyUrl={post.metadata.vinylSpotifyUrl}
         />
       )}
       <h1 className="title font-semibold text-2xl tracking-tighter">

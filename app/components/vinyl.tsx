@@ -4,11 +4,12 @@ interface VinylProps {
   title: string;
   artist: string;
   image: string;
+  spotifyUrl?: string;
 }
 
-export function Vinyl({ title, artist, image }: VinylProps) {
-    return (
-        <div style={{maxWidth: '300px', margin: 'auto', marginBottom: '4rem'}}>
+export function Vinyl({ title, artist, image, spotifyUrl }: VinylProps) {
+    const containerContent = (
+        <>
             <p style={{
                 fontFamily: 'monospace',
                 textAlign: 'center',
@@ -115,6 +116,28 @@ export function Vinyl({ title, artist, image }: VinylProps) {
             }}>
                 [{title} – {artist}]
             </p>
+        </>
+    );
+
+    return (
+        <div className="vinyl-container" style={{maxWidth: '300px', margin: 'auto', marginBottom: '4rem'}}>
+            {spotifyUrl ? (
+                <a 
+                    href={spotifyUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        cursor: 'pointer',
+                        display: 'block'
+                    }}
+                >
+                    {containerContent}
+                </a>
+            ) : (
+                containerContent
+            )}
             <style jsx global>{`
                 @keyframes grain {
                     0%, 100% { transform: translate(0, 0); }
@@ -134,8 +157,8 @@ export function Vinyl({ title, artist, image }: VinylProps) {
                     animation: grain 8s steps(10) infinite;
                 }
             `}</style>
-            <style jsx>{`
-                div:hover .vinyl-disc {
+            <style jsx global>{`
+                .vinyl-container:hover .vinyl-disc {
                     right: -40% !important;
                 }
             `}</style>
