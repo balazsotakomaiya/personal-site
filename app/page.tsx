@@ -25,7 +25,7 @@ export default function Page() {
       <div className="flex items-center gap-3 mb-0">
         {[
           { label: 'LinkedIn', href: 'https://www.linkedin.com/in/balazsotakomaiya/' },
-          { label: 'LeetCode', href: 'https://leetcode.com/u/balazsotakomaiya/' },
+          // { label: 'LeetCode', href: 'https://leetcode.com/u/balazsotakomaiya/' },
           { label: 'Email', href: 'mailto:balazs@otakomaiya.com' },
         ].map(({ label, href }) => (
           <a
