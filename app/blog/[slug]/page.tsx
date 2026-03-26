@@ -80,27 +80,25 @@ export default async function Blog({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Balázs Otakomaiya',
+              name: 'Balazs Otakomaiya',
             },
           }),
         }}
       />
       {post.metadata.vinylTitle && post.metadata.vinylArtist && post.metadata.vinylImage && (
-        <Vinyl 
-          title={post.metadata.vinylTitle} 
-          artist={post.metadata.vinylArtist} 
+        <Vinyl
+          title={post.metadata.vinylTitle}
+          artist={post.metadata.vinylArtist}
           image={post.metadata.vinylImage}
           spotifyUrl={post.metadata.vinylSpotifyUrl}
         />
       )}
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <p className="eyebrow font-[family-name:var(--font-mono)]">
+        {formatDate(post.metadata.publishedAt)}
+      </p>
+      <h1 className="title font-[family-name:var(--font-serif)] italic text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-8">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-      </div>
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>

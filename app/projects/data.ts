@@ -2,10 +2,12 @@ export interface Project {
   title: string;
   description: string;
   tech: string[];
-  category: 'cpp' | 'typescript' | 'ml' | 'professional';
+  category: 'ai' | 'mobile' | 'cpp' | 'web';
   url?: string;
   status: 'completed' | 'in-progress' | 'planned';
   year?: string;
+  toy?: boolean;
+  openSource?: boolean;
 }
 
 export interface Experience {
@@ -26,95 +28,114 @@ export interface Venture {
 
 export const projects: Project[] = [
   {
-    title: 'Fraud Detection Engine',
-    description: 'Open-source ML-based fraud detection system for fintech applications. Real-time transaction scoring with explainable AI.',
-    tech: ['Python', 'PyTorch', 'FastAPI', 'PostgreSQL'],
-    category: 'ml',
+    title: 'Pupil',
+    description: 'AI-powered flashcard hub for deep learning. Generates, organizes, and adapts cards to your knowledge gaps with spaced repetition.',
+    tech: ['Rust', 'React', 'Tauri', 'AI'],
+    category: 'ai',
     status: 'in-progress',
     year: '2026',
+    openSource: true,
   },
   {
-    title: 'Transaction Anomaly Detector',
-    description: 'Streaming anomaly detection for financial transactions using isolation forests and autoencoders.',
-    tech: ['Python', 'Kafka', 'scikit-learn'],
-    category: 'ml',
-    status: 'planned',
+    title: 'Vigil',
+    description: 'TanStack Query for Flutter. Cached, stale-aware data fetching with a mixin-based API — no code generation, no boilerplate, no ceremony.',
+    tech: ['Dart', 'Flutter'],
+    category: 'mobile',
+    status: 'in-progress',
     year: '2026',
+    openSource: true,
   },
   {
-    title: 'Ray Tracer',
-    description: 'A physically-based ray tracer built from scratch. Supports BVH acceleration, PBR materials, and area lights.',
-    tech: ['C++', 'CMake', 'OpenMP'],
+    title: 'Sigil',
+    description: 'Gorgeous avatars. Deterministic, multi-style, zero-dependency initial-based avatar generation library.',
+    tech: ['TypeScript', 'React'],
+    category: 'web',
+    status: 'completed',
+    year: '2026',
+    openSource: true,
+    url: 'https://sigil.otakomaiya.com',
+  },
+  {
+    title: 'Octo',
+    description: 'Consumer marketplace app for booking home services like cleaning, built with provider onboarding, payments, and marketplace operations end-to-end.',
+    tech: ['Flutter', 'Stripe Connect', 'Laravel'],
+    category: 'mobile',
+    status: 'completed',
+    year: '2026',
+    url: 'https://octoapp.hu/',
+  },
+  {
+    title: 'iOS Stopwatch Imitation',
+    description: 'Playground React project replicating the native iOS stopwatch interaction and visual behavior.',
+    tech: ['React', 'TypeScript'],
+    category: 'web',
+    status: 'completed',
+    year: '2023',
+    toy: true,
+    url: 'https://github.com/balazsotakomaiya/playground/tree/main/stopwatch',
+  },
+  {
+    title: 'Custom Vector (C++)',
+    description: 'Playground implementation of a custom C++ vector with manual memory management, growth strategy, and iterator-style access.',
+    tech: ['C++'],
     category: 'cpp',
     status: 'completed',
     year: '2025',
+    toy: true,
+    url: 'https://github.com/balazsotakomaiya/playground/tree/main/custom-vector',
   },
   {
-    title: 'Memory Allocator',
-    description: 'Custom memory allocator with pool, stack, and free-list strategies. Benchmarked against malloc/new.',
-    tech: ['C++', 'CMake'],
+    title: 'CSV Parser (C++)',
+    description: 'Playground C++ CSV parser focused on correctness and lightweight parsing for structured tabular input.',
+    tech: ['C++'],
     category: 'cpp',
     status: 'completed',
     year: '2025',
-  },
-  {
-    title: 'React Form Builder',
-    description: 'Drag-and-drop form builder with conditional logic, validation, and theme customization.',
-    tech: ['React', 'TypeScript', 'Zustand', 'Tailwind'],
-    category: 'typescript',
-    status: 'completed',
-    year: '2024',
-  },
-  {
-    title: 'CLI Task Runner',
-    description: 'A fast, concurrent task runner for monorepos. Topological sorting with parallel execution.',
-    tech: ['TypeScript', 'Node.js'],
-    category: 'typescript',
-    status: 'completed',
-    year: '2024',
+    toy: true,
+    url: 'https://github.com/balazsotakomaiya/playground/tree/main/csv-parser',
   },
 ];
 
 export const experiences: Experience[] = [
   {
     company: 'OTP Bank',
-    role: 'Software Engineer',
-    period: '2024 – Present',
+    role: 'Product Engineer',
+    period: '2023 – Present',
     description: 'Building a cross-platform retail investment app with Flutter for Hungary\'s largest bank.',
     url: 'https://otpbank.hu',
     highlights: ['Flutter', 'Cross-platform', 'Fintech'],
   },
   {
     company: 'Typeform',
-    role: 'Software Engineer',
-    period: '2023 – 2024',
+    role: 'Product Engineer',
+    period: '2022 – 2023',
     description: 'Worked on a brand new marketing automation tool in a small, tight-knit team.',
     url: 'https://typeform.com',
     highlights: ['React', 'TypeScript', 'Marketing Automation'],
   },
   {
+    company: 'PokerStars',
+    role: 'Product Engineer',
+    period: '2021 – 2022',
+    description: 'Worked on web products for the world\'s largest online poker platform.',
+    url: 'https://pokerstars.com',
+    highlights: ['React', 'Gaming', 'Web'],
+  },
+  {
     company: 'Booking.com',
-    role: 'Software Engineer',
-    period: '2022 – 2023',
+    role: 'Product Engineer',
+    period: '2020 – 2021',
     description: 'Large-scale enterprise product. Deep focus on scalability, performance, accessibility, and observability.',
     url: 'https://booking.com',
     highlights: ['React', 'A/B Testing', 'Performance'],
   },
   {
     company: 'DEPT Agency',
-    role: 'Software Engineer',
-    period: '2020 – 2022',
+    role: 'Product Engineer',
+    period: '2018 – 2020',
     description: 'Global digital agency. Worked on Royal Ascot, TOTUM, SteamForged, Flowtech, and more.',
     url: 'https://deptagency.com',
     highlights: ['React', 'Next.js', 'Various Clients'],
-  },
-  {
-    company: 'PokerStars',
-    role: 'Software Engineer',
-    period: '2019 – 2020',
-    description: 'Worked on web products for the world\'s largest online poker platform.',
-    url: 'https://pokerstars.com',
-    highlights: ['React', 'Gaming', 'Web'],
   },
 ];
 
@@ -128,10 +149,10 @@ export const ventures: Venture[] = [
 ];
 
 export const categoryLabels: Record<Project['category'], string> = {
+  ai: 'AI',
+  mobile: 'Mobile',
   cpp: 'C++',
-  typescript: 'TypeScript / React',
-  ml: 'ML & Fintech',
-  professional: 'Professional',
+  web: 'Web',
 };
 
 export const statusLabels: Record<Project['status'], string> = {

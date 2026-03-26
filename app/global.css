@@ -1,41 +1,145 @@
 @import 'tailwindcss';
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
+/* ─── Design System ─── */
 
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
+  /* Backgrounds */
+  --bg: #0a0a0a;
+  --bg-subtle: #111;
+  --bg-elevated: #161616;
+
+  /* Borders */
+  --border: #1e1e1e;
+  --border-hover: #2a2a2a;
+
+  /* Rulers */
+  --ruler: #1a1a1a;
+
+  /* Text */
+  --text-primary: #ededed;
+  --text-secondary: #888;
+  --text-tertiary: #555;
+
+  /* Spacing */
+  --content-width: 680px;
+  --page-padding: 32px;
+
+  /* Radii */
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  /* Syntax highlighting (dark) */
+  --sh-class: #4c97f8;
+  --sh-identifier: #e2e2e2;
   --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
+  --sh-string: #0fa295;
+  --sh-keyword: #f47067;
+  --sh-comment: #5c6370;
   --sh-jsxliterals: #6266d1;
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-  }
+::selection {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
 }
 
 html {
   min-width: 360px;
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Ruler Overlay ─── */
+
+.ruler-vertical {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  z-index: 50;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--ruler) 0px,
+    var(--ruler) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.ruler-left {
+  left: max(8px, calc((100vw - var(--content-width)) / 2 - 32px));
+}
+
+.ruler-right {
+  right: max(8px, calc((100vw - var(--content-width)) / 2 - 32px));
+}
+
+.ruler-horizontal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  z-index: 50;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--ruler) 0px,
+    var(--ruler) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.ruler-top { top: 0; }
+.ruler-bottom { bottom: 0; }
+
+/* ─── Section Dividers ─── */
+
+.section-divider {
+  height: 1px;
+  margin: 48px 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--ruler) 0px,
+    var(--ruler) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+/* ─── Eyebrow Labels ─── */
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+/* ─── Prose / Blog Styles ─── */
 
 .prose .anchor {
   @apply absolute invisible no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -48,11 +152,19 @@ html {
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--text-tertiary);
+  transition: text-decoration-color 0.15s;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--text-secondary);
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  color: var(--text-tertiary);
   content: '#';
 }
 
@@ -61,17 +173,28 @@ html {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  font-size: 13px;
+  background: var(--bg-subtle);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
 }
 
 .prose pre code {
-  @apply p-0;
+  padding: 0;
   border: initial;
-  line-height: 1.5;
+  background: transparent;
+  line-height: 1.7;
 }
 
 .prose code span {
@@ -79,48 +202,83 @@ html {
 }
 
 .prose img {
-  /* Don't apply styles to next/image */
   @apply m-0;
+  border-radius: var(--radius);
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 1.25em 0;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-neutral-300 dark:border-neutral-700 pl-4 py-2 my-4 italic text-neutral-700 dark:text-neutral-300;
+  border-left: 2px solid var(--border-hover);
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .prose strong {
-  @apply font-medium;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .prose ul {
   @apply list-disc pl-6;
+  color: var(--text-secondary);
 }
 
 .prose ol {
   @apply list-decimal pl-6;
+  color: var(--text-secondary);
+}
+
+.prose li {
+  margin: 0.35em 0;
+  line-height: 1.6;
 }
 
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
@@ -130,11 +288,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Remove Safari input shadow on mobile */
 input[type='text'],
 input[type='email'] {
   -webkit-appearance: none;
@@ -151,4 +308,21 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 640px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .section-divider {
+    margin: 32px 0;
+  }
+
+  .ruler-left,
+  .ruler-right {
+    display: none;
+  }
 }

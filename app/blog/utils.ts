@@ -6,6 +6,10 @@ type Metadata = {
   publishedAt: string
   summary: string
   image?: string
+  vinylTitle?: string
+  vinylArtist?: string
+  vinylImage?: string
+  vinylSpotifyUrl?: string
 }
 
 function parseFrontmatter(fileContent: string) {
