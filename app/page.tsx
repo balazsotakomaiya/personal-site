@@ -6,7 +6,8 @@ export default function Page() {
   return (
     <section>
       {/* Hero */}
-      <div className="mb-4 hero-animate">
+      {/* Hero – Desktop */}
+      <div className="mb-4 hero-animate hidden sm:block">
         <h1 className="text-[clamp(32px,5vw,48px)] leading-[1.15] tracking-tight">
           <span className="text-[var(--text-secondary)]">Nice to meet you, I'm </span>
           <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">
@@ -22,10 +23,37 @@ export default function Page() {
           Taste <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">×</span> engineering <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">×</span> business — I work at the intersection. 8 years of
         </p>
         <p className="text-[15px] leading-relaxed text-[var(--text-secondary)] max-w-[520px]">
-          shipping: Booking.com, Typeform, OTP Bank. Deep in React/TS and Flutter.
+          shipping: Booking.com, Typeform, OTP&nbsp;Bank. Deep in React/TS and Flutter.
         </p>
         <p className="text-[15px] leading-relaxed text-[var(--text-secondary)] max-w-[520px]">
-           Increasingly deep in AI — pipelines, integrations, fine-tuning.
+          Increasingly deep in AI — pipelines, integrations, fine-tuning.
+        </p>
+      </div>
+
+      {/* Hero – Mobile */}
+      <div className="mb-4 hero-animate sm:hidden">
+        <h1 className="text-[clamp(32px,5vw,48px)] leading-[1.15] tracking-tight">
+          <span className="text-[var(--text-secondary)]">Nice to meet you, I'm </span>
+          <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">
+            Balazs
+          </span>
+        </h1>
+        <h1 className="text-[clamp(32px,5vw,48px)] leading-[1.15] tracking-tight mb-5">
+          <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">
+            Otakomaiya
+          </span>
+        </h1>
+        <p className="text-[15px] leading-relaxed text-[var(--text-secondary)]">
+          Taste <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">×</span> engineering <span className="font-[family-name:var(--font-serif)] italic text-[var(--text-primary)]">×</span> business — I work at the
+        </p>
+        <p className="text-[15px] leading-relaxed text-[var(--text-secondary)]">
+          intersection. 8 years of shipping: Booking.com,
+        </p>
+        <p className="text-[15px] leading-relaxed text-[var(--text-secondary)]">
+          Typeform, OTP&nbsp;Bank. Deep in React/TS and Flutter.
+        </p>
+        <p className="text-[15px] leading-relaxed text-[var(--text-secondary)]">
+          Increasingly deep in AI — pipelines, integrations, fine-tuning.
         </p>
       </div>
 

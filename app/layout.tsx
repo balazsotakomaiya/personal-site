@@ -70,7 +70,7 @@ export default function RootLayout({
         <div className="ruler-horizontal ruler-bottom" aria-hidden="true" />
 
         <Navbar />
-        <main className="relative max-w-[680px] mx-auto px-8 md:px-0 pb-16">
+        <main className="relative max-w-[680px] mx-auto px-5 sm:px-8 md:px-0 pb-16">
           {children}
           <Footer />
           <Analytics />

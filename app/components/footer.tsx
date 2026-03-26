@@ -7,23 +7,23 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-20">
+    <footer className="mt-12 sm:mt-20">
       <div className="section-divider" />
-      <div className="flex flex-col items-center gap-5 py-10">
+      <div className="flex flex-col items-center gap-3 sm:gap-5 py-6 sm:py-10">
         <p
-          className="font-[family-name:var(--font-display)] text-[15px] text-[var(--text-tertiary)] tracking-[-0.3px]"
+          className="font-[family-name:var(--font-display)] text-[13px] sm:text-[15px] text-[var(--text-tertiary)] tracking-[-0.3px]"
         >
           my den
         </p>
-        <div className="flex items-center gap-0 text-[var(--text-tertiary)]">
+        <div className="flex items-center flex-wrap justify-center gap-0 text-[var(--text-tertiary)]">
           {links.map(({ label, href }, i) => (
             <span key={label} className="flex items-center">
-              {i > 0 && <span className="mx-2.5 text-[10px]">&middot;</span>}
+              {i > 0 && <span className="mx-2 sm:mx-2.5 text-[10px]">&middot;</span>}
               <a
                 href={href}
                 target={href.startsWith('/') || href.startsWith('mailto') ? undefined : '_blank'}
                 rel={href.startsWith('/') || href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                className="text-[13px] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+                className="text-[12px] sm:text-[13px] text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
               >
                 {label}
               </a>
@@ -31,10 +31,10 @@ export default function Footer() {
           ))}
         </div>
         <p>
-          <span className="text-[13px] text-[var(--text-tertiary)]">Made by </span>
+          <span className="text-[12px] sm:text-[13px] text-[var(--text-tertiary)]">Made by </span>
           <a
             href="/"
-            className="font-[family-name:var(--font-serif)] italic text-[18px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            className="font-[family-name:var(--font-serif)] italic text-[15px] sm:text-[18px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
           >
             Balazs Otakomaiya
           </a>

@@ -8,7 +8,7 @@ const navItems = {
 export function Navbar() {
   return (
     <nav
-      className="sticky top-0 z-100 w-full px-8 md:px-6 py-4 mb-16"
+      className="sticky top-0 z-100 w-full px-5 sm:px-8 md:px-6 py-4 mb-16"
       style={{
         background: 'rgba(10, 10, 10, 0.8)',
         backdropFilter: 'blur(12px)',

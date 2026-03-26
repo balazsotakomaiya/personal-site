@@ -32,7 +32,7 @@ export function ProjectFilters() {
 
   return (
     <>
-      <div className="flex items-center gap-3 mb-5">
+      <div className="flex items-center gap-2 sm:gap-3 mb-5 flex-wrap">
         <p className="eyebrow font-[family-name:var(--font-mono)] !mb-0 mr-2">Projects</p>
         {filters.map((f) => (
           <button
@@ -76,14 +76,14 @@ export function ProjectFilters() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[15px] font-semibold text-[var(--text-primary)] hover:underline underline-offset-3 inline-block mb-1"
+                className="text-base font-semibold text-[var(--text-primary)] hover:underline underline-offset-3 inline-block mb-1"
               >
                 {p.title}
               </a>
             ) : (
-              <h3 className="text-[15px] font-semibold text-[var(--text-primary)] mb-1">{p.title}</h3>
+              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-1">{p.title}</h3>
             )}
-            <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">{p.description}</p>
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{p.description}</p>
             <div className="flex flex-wrap gap-1.5 mt-3">
               {p.tech.map((t) => (
                 <span

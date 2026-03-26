@@ -49,6 +49,7 @@ html {
   min-width: 360px;
   color-scheme: dark;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -112,9 +113,7 @@ body {
   margin: 48px 0;
   position: relative;
   left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  transform: translateX(-50%);
   width: 100vw;
   background-image: repeating-linear-gradient(
     to right,
@@ -342,6 +341,7 @@ table {
 @media (max-width: 640px) {
   :root {
     --page-padding: 20px;
+    --ruler: #252525;
   }
 
   .section-divider {
@@ -350,6 +350,10 @@ table {
 
   .ruler-left,
   .ruler-right {
+    display: none;
+  }
+
+  .ruler-horizontal {
     display: none;
   }
 }
