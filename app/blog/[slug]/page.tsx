@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
+import { Vinyl } from 'app/components/vinyl'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -11,8 +12,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
   if (!post) {
     return
   }
@@ -51,8 +53,9 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function Blog({ params }) {
+  const { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
@@ -77,19 +80,25 @@ export default function Blog({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Balázs Otakomaiya',
+              name: 'Balazs Otakomaiya',
             },
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      {post.metadata.vinylTitle && post.metadata.vinylArtist && post.metadata.vinylImage && (
+        <Vinyl
+          title={post.metadata.vinylTitle}
+          artist={post.metadata.vinylArtist}
+          image={post.metadata.vinylImage}
+          spotifyUrl={post.metadata.vinylSpotifyUrl}
+        />
+      )}
+      <p className="eyebrow font-[family-name:var(--font-mono)]">
+        {formatDate(post.metadata.publishedAt)}
+      </p>
+      <h1 className="title font-[family-name:var(--font-serif)] italic text-[clamp(28px,4vw,40px)] leading-[1.15] tracking-tight mb-8">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-      </div>
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>

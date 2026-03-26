@@ -1,0 +1,21 @@
+---
+title: 'Testing Large Language Models – LLM as Judge (evals)'
+publishedAt: '2026-01-16'
+summary: 'Building sustainable production software requires testing. Here's how to evaluate LLMs effectively.'
+image: '/testing-llms-og.png'
+vinylTitle: 'Wherever You Are'
+vinylArtist: 'Nitefreak and Vidojean X Oliver Loenn'
+vinylImage: '/wherever-you-are.png'
+vinylSpotifyUrl: 'https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8'
+draft: 'true'
+---
+
+Contrary to what my boss might think, I like my code tested. You _cannot_ build sustainable, production software without a strong culture of testing. This fact was beaten into me by coworkers on my PR's, failed merge checks because my changes dropped the project coverage beyond the threshold, and on the happier days, articles I've read.
+
+Working at a large organisation like a bank is great – you get exposure to problems you'd never get exposure to working at a startup. The scale and the surface area of the problems is truly super-exciting. One of the obvious downsides, though, is that we're lightyears behind on AI (and any new and shiny tech broadly speaking, due to the million hoops one has to jump through to push something thru the relevant stakeholders).
+
+So, in a recent effort to time-travel 4 years into the present, I've decided to try dabbling with large language models from a builders' perspective. I've made a few developer accounts at the popular model providers. Anthropic, X.AI, ChatGPT, and so on. And, I've set out to find a sort of pay-as-you-go solution for trying out open-source providers too.
+
+Then, I got to writing system prompts (the prompts that are sort of level above user prompts). One of my first, and rather obvious questions was: "How the fuck am I going to test any of this?".
+
+This post is by no means meant to be the holy grail of LLM prompt testing. The material on this topic just happens to be quite-scarce.
