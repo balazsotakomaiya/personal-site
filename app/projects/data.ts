@@ -35,6 +35,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
+    url: 'https://github.com/balazsotakomaiya/pupil',
   },
   {
     title: 'Vigil',

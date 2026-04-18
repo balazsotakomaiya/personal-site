@@ -314,27 +314,59 @@ table {
 @keyframes blur-slide-in {
   0% {
     opacity: 0;
-    filter: blur(8px);
-    transform: translateX(-16px);
+    filter: blur(10px);
+    transform: translateY(24px);
   }
   100% {
     opacity: 1;
     filter: blur(0px);
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-.hero-animate > * {
+.word {
+  display: inline-block;
   opacity: 0;
-  animation: blur-slide-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: blur-slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, filter, opacity;
 }
 
-.hero-animate > *:nth-child(1) { animation-delay: 0ms; }
-.hero-animate > *:nth-child(2) { animation-delay: 150ms; }
-.hero-animate > *:nth-child(3) { animation-delay: 500ms; }
-.hero-animate > *:nth-child(4) { animation-delay: 650ms; }
-.hero-animate > *:nth-child(5) { animation-delay: 800ms; }
-.hero-animate > *:nth-child(6) { animation-delay: 950ms; }
+/* ─── Portrait ─── */
+
+.portrait-img {
+  -webkit-mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
+  filter: grayscale(0.35) contrast(1.05) brightness(0.92);
+}
+
+@keyframes portrait-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes portrait-unblur {
+  0% {
+    filter: blur(10px) grayscale(0.35) contrast(1.05) brightness(0.92);
+  }
+  100% {
+    filter: blur(0) grayscale(0.35) contrast(1.05) brightness(0.92);
+  }
+}
+
+.portrait-reveal {
+  opacity: 0;
+  animation: portrait-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms forwards;
+}
+
+.portrait-reveal .portrait-img {
+  animation: portrait-unblur 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1200ms both;
+}
 
 /* ─── Responsive ─── */
 
