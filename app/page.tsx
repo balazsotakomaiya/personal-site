@@ -114,15 +114,17 @@ export default function Page() {
           <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[1.5px] text-[var(--text-tertiary)] mb-2">
             Fig. I
           </p>
-          <Image
-            src="/me.png"
-            alt="Balazs Otakomaiya"
-            width={545}
-            height={743}
-            priority
-            sizes="(min-width: 640px) 200px, 140px"
-            className="portrait-img w-full h-auto block"
-          />
+          <div className="portrait-frame">
+            <Image
+              src="/me.png"
+              alt="Balazs Otakomaiya"
+              width={545}
+              height={743}
+              priority
+              sizes="(min-width: 640px) 200px, 140px"
+              className="portrait-img w-full h-auto block"
+            />
+          </div>
           <p className="font-[family-name:var(--font-serif)] italic text-[13px] text-[var(--text-tertiary)] mt-2 text-right">
             b.o. — MMXXVI
           </p>

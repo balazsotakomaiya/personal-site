@@ -333,9 +333,13 @@ table {
 
 /* ─── Portrait ─── */
 
-.portrait-img {
+.portrait-frame {
   -webkit-mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
   mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
+  line-height: 0;
+}
+
+.portrait-img {
   filter: grayscale(0.35) contrast(1.05) brightness(0.92);
 }
 
