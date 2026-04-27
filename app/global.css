@@ -337,6 +337,8 @@ table {
   -webkit-mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
   mask-image: radial-gradient(ellipse 92% 98% at 50% 50%, #000 52%, transparent 100%);
   line-height: 0;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .portrait-img {
@@ -364,8 +366,7 @@ table {
 }
 
 .portrait-reveal {
-  opacity: 0;
-  animation: portrait-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms forwards;
+  animation: portrait-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms both;
 }
 
 .portrait-reveal .portrait-img {
