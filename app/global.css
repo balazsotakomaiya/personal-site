@@ -315,7 +315,7 @@ table {
   0% {
     opacity: 0;
     filter: blur(10px);
-    transform: translateY(24px);
+    transform: translateY(20%);
   }
   100% {
     opacity: 1;
@@ -324,11 +324,21 @@ table {
   }
 }
 
-.word {
-  display: inline-block;
+.hero-line {
   opacity: 0;
-  animation: blur-slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  filter: blur(10px);
+  transform: translateY(20%);
+  animation: blur-slide-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   will-change: transform, filter, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
 }
 
 /* ─── Portrait ─── */
@@ -366,11 +376,11 @@ table {
 }
 
 .portrait-reveal {
-  animation: portrait-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms both;
+  animation: portrait-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms backwards;
 }
 
 .portrait-reveal .portrait-img {
-  animation: portrait-unblur 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1200ms both;
+  animation: portrait-unblur 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1200ms backwards;
 }
 
 /* ─── Responsive ─── */
