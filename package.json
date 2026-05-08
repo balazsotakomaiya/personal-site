@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "bun next dev",
+    "dev": "bun next dev -p 3010",
     "build": "bun next build",
     "start": "bun next start"
   },

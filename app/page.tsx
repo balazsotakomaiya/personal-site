@@ -97,6 +97,14 @@ export default function Page() {
           </a>
         ))}
       </div>
+      
+      <div className="section-divider" />
+
+      {/* Blog */}
+      <div>
+        <p className="eyebrow font-[family-name:var(--font-mono)] mb-6">Recent Writing</p>
+        <BlogPosts />
+      </div>
 
       <div className="section-divider" />
 
@@ -182,14 +190,6 @@ export default function Page() {
           </p>
         </div>
       ))}
-
-      <div className="section-divider" />
-
-      {/* Blog */}
-      <div>
-        <p className="eyebrow font-[family-name:var(--font-mono)] mb-6">Recent Writing</p>
-        <BlogPosts />
-      </div>
     </section>
   )
 }
