@@ -84,7 +84,7 @@ A lot of LLM apps treat memory as "periodically summarize the conversation and s
 
 Real memory needs a write policy, a retrieval policy, temporal modeling, contradiction handling, and quality evaluation. [MemoryBank](https://arxiv.org/abs/2305.10250) lays this out well – it models memory with reinforcement, decay, and user-personality adaptation, much closer to how human memory actually works than any summarization pipeline.
 
-The practical consensus across most of the recent literature: **embeddings alone are not memory**. Semantic search is one component, but memory quality is mostly determined by write discipline, retrieval ranking, temporal modeling, and what you do with contradictions. I learned this the hard way.
+The practical consensus across most of the recent literature: **embeddings alone are not memory**. Semantic search is one component, but memory quality is mostly determined by write discipline, retrieval ranking, temporal modeling, and what you do with contradictions.
 
 > **What's an embedding?** It's a way of converting text into a list of numbers that captures its meaning. Similar meanings produce similar numbers, which lets you search by concept rather than exact words – "job interview nerves" will surface a memory about "anxious about the hiring process" even if those words don't match. Most early LLM memory attempts stopped here: embed everything, retrieve the closest match, done.
 
