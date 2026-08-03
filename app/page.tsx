@@ -26,7 +26,7 @@ export default function Page() {
           <p className={`${PARA_BASE} max-w-[440px]`} style={{ animationDelay: '320ms' }}>
             Taste <span className={SERIF}>×</span> engineering{' '}
             <span className={SERIF}>×</span> business — I work at the intersection. 8 years of
-            shipping: Booking.com, Typeform, OTP Bank. Deep in React/TS and Flutter.
+            shipping: Booking.com, Typeform, OTP Bank, J.P. Morgan. Deep in React/TS and Flutter.
           </p>
           <p className={`${PARA_BASE} max-w-[440px]`} style={{ animationDelay: '480ms' }}>
             Increasingly deep in AI — pipelines, integrations, fine-tuning.
@@ -50,7 +50,7 @@ export default function Page() {
             intersection. 8 years of shipping: Booking.com,
           </p>
           <p className={PARA_BASE} style={{ animationDelay: '540ms' }}>
-            Typeform, OTP Bank. Deep in React/TS and Flutter.
+            Typeform, OTP Bank, J.P. Morgan. Deep in React/TS and Flutter.
           </p>
           <p className={PARA_BASE} style={{ animationDelay: '650ms' }}>
             Increasingly deep in AI — pipelines, integrations, fine-tuning.

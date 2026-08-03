@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     default: 'Balazs Otakomaiya',
     template: '%s | Balazs Otakomaiya',
   },
-  description: 'Product Engineer. 8 years shipping products at scale — from Booking.com and Typeform to cross-platform fintech. Co-founded EZZRA.',
+  description: 'VP, Lead Software Engineer at J.P. Morgan’s eTrading FX Services team. 8 years shipping products at scale. Co-founded EZZRA.',
   openGraph: {
     title: 'Balazs Otakomaiya',
-    description: 'Product Engineer. 8 years shipping products at scale.',
+    description: 'VP, Lead Software Engineer at J.P. Morgan’s eTrading FX Services team.',
     url: baseUrl,
     siteName: 'Balazs Otakomaiya',
     locale: 'en_US',

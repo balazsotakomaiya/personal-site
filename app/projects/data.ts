@@ -99,16 +99,24 @@ export const projects: Project[] = [
 
 export const experiences: Experience[] = [
   {
+    company: 'J.P. Morgan',
+    role: 'VP, Lead Software Engineer',
+    period: '2026 – Present',
+    description: 'Recently joined J.P. Morgan\'s eTrading FX Services team as a VP, Lead Software Engineer.',
+    url: 'https://www.jpmorgan.com',
+    highlights: ['eTrading', 'FX Services', 'Software Engineering'],
+  },
+  {
     company: 'OTP Bank',
-    role: 'Product Engineer',
-    period: '2023 – Present',
+    role: 'Senior Software Engineer',
+    period: '2023 – 2026',
     description: 'Building a cross-platform retail investment app with Flutter for Hungary\'s largest bank.',
     url: 'https://otpbank.hu',
     highlights: ['Flutter', 'Cross-platform', 'Fintech'],
   },
   {
     company: 'Typeform',
-    role: 'Product Engineer',
+    role: 'Frontend Engineer',
     period: '2022 – 2023',
     description: 'Worked on a brand new marketing automation tool in a small, tight-knit team.',
     url: 'https://typeform.com',
@@ -116,7 +124,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'PokerStars',
-    role: 'Product Engineer',
+    role: 'Software Engineer',
     period: '2021 – 2022',
     description: 'Worked on web products for the world\'s largest online poker platform.',
     url: 'https://pokerstars.com',
@@ -124,7 +132,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'Booking.com',
-    role: 'Product Engineer',
+    role: 'Software Engineer',
     period: '2020 – 2021',
     description: 'Large-scale enterprise product. Deep focus on scalability, performance, accessibility, and observability.',
     url: 'https://booking.com',
@@ -132,7 +140,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'DEPT Agency',
-    role: 'Product Engineer',
+    role: 'Software Engineer',
     period: '2018 – 2020',
     description: 'Global digital agency. Worked on Royal Ascot, TOTUM, SteamForged, Flowtech, and more.',
     url: 'https://deptagency.com',
