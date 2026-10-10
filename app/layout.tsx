@@ -62,7 +62,10 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable} ${syne.variable}`}
     >
-      <body className="antialiased">
+      <body className="antialiased min-h-[100dvh] flex flex-col">
+        {/* Film grain */}
+        <div className="grain-overlay" aria-hidden="true" />
+
         {/* Rulers */}
         <div className="ruler-vertical ruler-left" aria-hidden="true" />
         <div className="ruler-vertical ruler-right" aria-hidden="true" />
@@ -70,7 +73,10 @@ export default function RootLayout({
         <div className="ruler-horizontal ruler-bottom" aria-hidden="true" />
 
         <Navbar />
-        <main className="relative max-w-[680px] mx-auto px-5 sm:px-8 md:px-0 pb-16">
+        <main
+          className="relative z-[1] flex-1 flex flex-col w-full mx-auto px-5 sm:px-8 md:px-0"
+          style={{ maxWidth: 'var(--content-width)' }}
+        >
           {children}
           <Footer />
           <Analytics />

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { projects, statusLabels } from 'app/projects/data'
 import type { Project } from 'app/projects/data'
+import { SectionHead } from 'app/components/section-head'
 
 type Filter = 'all' | Project['category']
 
@@ -15,6 +16,13 @@ const allFilters: { key: Filter; label: string; count: number }[] = [
 ]
 
 const filters = allFilters.filter((f) => f.count > 0 || f.key === 'all')
+
+function trackSpotlight(e: React.MouseEvent<HTMLDivElement>) {
+  const el = e.currentTarget
+  const rect = el.getBoundingClientRect()
+  el.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+  el.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
 
 function StatusDot({ status }: { status: Project['status'] }) {
   const color =
@@ -32,8 +40,8 @@ export function ProjectFilters() {
 
   return (
     <>
-      <div className="flex items-center gap-2 sm:gap-3 mb-5 flex-wrap">
-        <p className="eyebrow font-[family-name:var(--font-mono)] !mb-0 mr-2">Projects</p>
+      <SectionHead index="03" title="Projects" meta={`${projects.length} built`} />
+      <div className="flex items-center gap-1.5 sm:gap-2 mb-5 flex-wrap">
         {filters.map((f) => (
           <button
             key={f.key}
@@ -53,7 +61,8 @@ export function ProjectFilters() {
         {filtered.map((p) => (
           <div
             key={p.title}
-            className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 transition-all hover:border-[var(--border-hover)]"
+            onMouseMove={trackSpotlight}
+            className="spot-card rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 transition-all hover:border-[var(--border-hover)]"
           >
             <div className="flex items-center gap-2 mb-2">
               <StatusDot status={p.status} />

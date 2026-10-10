@@ -130,20 +130,50 @@ The structural motif: dashed vertical + horizontal rulers forming a blueprint gr
 
 ## Navigation
 
-Sticky frosted-glass bar:
+Floating glass capsule (`.nav-capsule`), sticky with a 12–16px top inset, max-width 712px:
 
 ```css
-position: sticky;
-top: 0;
-z-index: 100;
-background: rgba(10, 10, 10, 0.8);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid var(--border);
+border-radius: 999px;
+border: 1px solid rgba(255, 255, 255, 0.08);
+background: rgba(16, 16, 16, 0.72);
+backdrop-filter: blur(14px) saturate(120%);
 ```
 
-- Logo: Instrument Serif italic, cycles between "Balazs" and "Otakomaiya" with slide animation (4s interval)
-- Nav links: Geist Mono, 12px, uppercase, `text-secondary` -> `text-primary` on hover
-- GitHub button: pill with border, subtle hover background `white/3%`
+- Brand: "Balazs Otakomaiya" in Geist 14px/500, one colour (`text-primary`); surname hidden under 420px. No logo/avatar.
+- Links (`.nav-link`): 13px/500 pills; active route gets `white/7%` fill (client component, `usePathname`)
+- GitHub: 32px round icon button after a hairline divider
+- Reading mode (posts with 2+ `h2`s): once you reach the first section, the brand cross-fades to `02 / 05 · Section title` and the links to a progress ring + `N min left`. The section opens a contents list (`.nav-toc`) that jumps to headings; Escape / outside click / scroll closes it.
+
+---
+
+## Section Heads
+
+`<SectionHead index="01" title="Writing" meta="3 posts" />` — mono index, 20px/600 title, dashed ruler filling the gap, mono uppercase meta on the right.
+
+---
+
+## Hero Extras
+
+- **Chip links** (`.chip-link`): bordered pills with a `↗` that nudges up-right on hover
+
+---
+
+## Lists
+
+- **Post rows** (`.post-row`): full-bleed hover fill, title nudges right, date slides left to reveal a `→`
+- **Career rows** (`.career-row`): `120px | 1fr` grid — mono period left; company, role, description, tags right. Stacks on mobile.
+
+---
+
+## Footer Wordmark
+
+Oversized Syne 700 "my den" (`.footer-wordmark`), `#171717`, full-bleed, cropped at the page bottom.
+
+---
+
+## Texture
+
+- **Film grain** — `--grain` token (SVG `feTurbulence` tile). Page-wide `.grain-overlay` sits fixed *under* content (`z-index: 0`, opacity 0.06) so text stays crisp. Photos are never grained or filtered beyond the portrait's existing treatment.
 
 ---
 
@@ -156,6 +186,8 @@ border-radius: 12px (rounded-xl);
 padding: 16px;
 transition: border-color on hover -> var(--border-hover);
 ```
+
+Project cards use `.spot-card`: a soft white radial spotlight that follows the cursor (`--mx`/`--my` set on mousemove).
 
 ---
 
