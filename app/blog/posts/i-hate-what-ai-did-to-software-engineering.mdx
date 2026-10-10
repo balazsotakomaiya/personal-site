@@ -1,0 +1,139 @@
+---
+title: 'I hate what AI did to software engineering'
+publishedAt: '2026-10-09'
+image: '/i-hate-what-ai-did-og.png'
+summary: 'Why does software engineering feel more hectic, distant, and impossible to do collaboratively? An attempt to crystallise the why.'
+draft: 'false'
+---
+
+There. I've said it. I know that deep down, you've felt this too. You may have even vocalised it. You may have tried to let it play out and stepped onto the sidelines — only to still have to review your coworkers' AI slop PRs.
+
+I've been trying to really crystallise the why behind this statement. Why does software engineering feel so hectic and chaotic these days? Why does everything feel so... distant and detached? Why does it feel like you need to re-learn and re-think your development workflow every month? Why does it feel like there's no possible way to do this collaboratively?
+
+All the while, you're being told, from every possible angle, that you should be more productive. That mundane work is a thing of the past. That anyone, even you, especially you, can become a 10x developer.
+
+## Floor is lava
+
+AI models are not going away. That much is clear. Even the skeptical voices that were oh so loud 3 or 4 years ago, hell, some even a year ago, are starting to quiet down.
+
+<Tweet
+  url="https://x.com/dhh/status/2103605531457867868"
+  name="DHH"
+  handle="dhh"
+  avatar="https://pbs.twimg.com/profile_images/2093715898204884992/goERjC9G_200x200.jpg"
+  date="Sep 25, 2026"
+  text="The number of programmers worldwide who can beat a collaborating pair of frontier models rounds to zero."
+/>
+
+I'll be the first to put my pride away and say that the frontier models of today write better code than I ever did (with the right guidance, of course). We're getting model releases with large leaps in capability every few months, if not more often. And open source has all but caught up with the proprietary frontier. Count those in, and there's a new model release for every day of the week.
+
+Your boss is telling you to integrate these tools into your life. Your boss's boss is telling you the same. So is the company's CEO. Some random dude on LinkedIn. Your favourite tech influencer on X. You read blog posts about cracked SWEs running 80 parallel agents.
+
+And yet, these tools are nothing like anything we've used before. They change, they change very often, very substantially, and sometimes, actually, for the worse. With very little transparency as to the how and the why. Try to keep up, try to stay current, and it'll cost you your sanity.
+
+- IDEs turn into agent orchestrators.
+- [Models get pulled.](https://www.techzine.eu/news/devops/143932/openai-withdraws-models-from-cursor-following-acquisition-by-spacex/)
+- Models get lobotomised.
+- Models go down or become really slow out of the blue because there's no compute.
+- New models arise.
+- Usage limits get cut.
+- Model prices fluctuate wildly.
+- Harnesses get updated.
+- Harnesses themselves are unstable.
+- Model routers are unstable.
+- Harnesses get acquired by mega-corporations.
+
+<FloorIsLava />
+
+...actually, I'll stop right there and reflect a little on that last point. Because it's the one that worries me the most.
+
+After capable AI coding assistants went mainstream, starting around 2023, a wave of new IDEs began to appear. AI IDEs. Remember [Windsurf](https://techcrunch.com/2025/07/14/cognition-maker-of-the-ai-coding-agent-devin-acquires-windsurf/)? [Cursor](https://www.techzine.eu/news/devops/142197/spacex-acquires-cursor-for-60-billion/)? Kilo? Pear, even? They allowed you to swap between different underlying providers within the IDE. What else do they have in common?
+
+They've been acquired by large model providers. Every one of them (except for Pear — does anyone know what's up with them?). And this matters, because model providers have very different incentives to IDEs. They want you to use THEIR model. Independent IDEs only care about the cut they take, wherever the traffic goes. And so this presents a very obvious problem. One that I, as a developer, despise.
+
+Vendor lock-in.
+
+Here's where this gets nasty. We've just established how fast and shaky the industry is. Today's king of all models is literally obsolete within 12 weeks. Comical by 24 and criminal by 36. In the few weeks since I started writing this blog post, Anthropic, OpenAI and xAI have all released their latest, shiny flagship models.
+
+The meta keeps shifting, and often — not even a week goes by without a major announcement. This is the one tool in your toolbox where you really don't want to be locked in to a vendor. Where the quality of your decision has to be re-evaluated every day.
+
+And yet, as developers, and as corporations too by the way, we're being squeezed into complying with the direction the industry is heading. As independent options start to disappear, each model lab's offering gets more and more deeply integrated into your life — through connectors, MCPs, memories, chat history, project context, and so on. Their sales reps have sunk their claws in so deep that you have to sit through mandatory lab-provided AI upskilling every other week. So you naturally...
+
+## Spread the risk
+
+We've all been there. Maybe your usage limit got cut. Perhaps it was a shiny new model release from another lab that piqued your interest. Or a new vertically integrated offering from the other team looks like it'll make your life easier.
+
+It's all the same. You grab another subscription. I'm a whore for them. Codex, Claude, Cursor and OpenCode. Hell of a roster. You don't want to see my bodycount.
+
+<SubscriptionStack />
+
+Jokes aside, I genuinely can't even recall all of the different IDEs and harnesses I've tried.
+
+I've tried every model flavour there is. GLM. GPT. Claude. Gemini. DeepSeek. MiMo. Qwen. Muse. You name it, I've tried it. I like trying things, as you can probably infer from the above — and yet even my extreme openness to novelty has its limits, apparently.
+
+It wasn't all for nothing, though. As short-lived as much of this knowledge is, you do start to get a feel for each model. Its style. Its quirks. The words it loves. The tasks it excels at. The prompts where it gets lazy. None of this is quantifiable. Thankfully, I am a human, and it doesn't need to be for me to start texting my fellow developer friends in our group chat about how absolutely insane, or on the contrary, retarded this new model is. Only for them to say, "It's actually worked really good for me". So much for vibes.
+
+Nevertheless, despite all of these models being mostly general-purpose, each has its own unique strength. Some excel at coding. Others at writing. Computer use. UX design. Speed. Cost. Or, in the case of Mistral: being on European soil. I love that for them.
+
+This will likely age like milk (some benchmarks suggest it may already have expired), but Claude has long been the design champion amongst the models. DeepSeek was, until very recently, the very, very obvious value champion — then GPT-6 Luna came out somewhere between me starting this post and finishing it, and undercut it. And so for whatever heuristic is important to you, I guarantee there's a model that does it best, and usually by a long shot too.
+
+So naturally, you start to assemble your own little fleet of models. GPT-6 Astra for planning. GPT-6 Sol for execution. DeepSeek V4.1 Flash for large-surface-area, low-to-medium complexity work. Claude for design. GLM for writing website copy. Gemini because you keep thinking this time around it's actually good and won't delete your production database in a local debugging session. That sort of thing.
+
+It would then make sense to try to use one tool to orchestrate all these different models.
+
+## Harnesses. The not-so-sexy ones.
+
+<HarnessPrimer />
+
+Here's where things get really, really messy, though. You see, model providers want to build a vertically integrated experience. They want to do your shopping. They want to write your emails. They want to write your code. They also want you to write that code through them. They want you to use their mobile app. Their IDE, harness, or desktop workspace. Call it what you will.
+
+Each model provider has started to build its own agentic harness, namely:
+
+- Google: Gemini → Antigravity
+- xAI: Grok and Composer → Cursor
+- OpenAI: GPT → Codex
+- Anthropic: Claude → Claude Code
+- Cognition: SWE → Devin
+- Meta: Muse Spark → Muse Code
+
+Here's the conundrum: you, as an engineer, need to hedge yourself against all these model changes. You want to work with the best tool for the job. You want to keep your project context and chat history as you move between providers. They, as model providers and now harness providers, want to lock you into their ecosystem.
+
+The market rewards optionality. Your tools punish it.
+
+…and yet today, if I wish to de-risk myself from the constant model and coding meta changes, I have no good way of doing so. As far as I can tell, there are only two options. The first is to accept that I have to juggle some combination of tools: Claude Code + Codex alongside my everyday IDE, say, VS Code.
+
+Or, I could opt for something like Devin, where there's a wide variety of models, yet most come at extortionate raw API pricing. I did the maths. I'm not about to pay hundreds of pounds per month to work on my hobby projects.
+
+The cost of this juggling becomes staggeringly apparent as soon as you start setting up skills and MCP integrations, attempt to swap one provider for another, or add a new one to the roster. The lost chats. The setup. Having to figure out whether you'll use this one through the terminal (yikes), their desktop app, or as an extension. The latter being less and less maintained.
+
+And so here I stand today. A humble developer. Absolutely in awe of what is possible, just by myself — let alone with a team. Yet the tooling I'm presented with makes for a clunky, annoying, and quite frankly, jigsaw-like development experience. The worst offender of all, however, has to be collaboration.
+
+## A team's nightmare
+
+Today's tools make barely any attempt to tackle collaboration. You'd think this would be at the forefront of everyone's talking points, and yet, I've not seen many tools tackling this issue head-on.
+
+Here's the harsh truth. We can outsource intelligence. We cannot outsource thinking. And yet, we're doing just that. We've all been there. A colleague leaves a review on your PR. Perhaps even their review is AI-written. You have no idea what they're asking — you didn't write the code. The shame compounds if they walk up to you in person, asking about a code snippet you don't even remember, let alone understand.
+
+Of course, the idealistic answer would be to command people to read the code AI produces. But I think I speak for everyone when I say: it is really, really hard to get yourself to do that, again and again. Line after line. No, it's not because I'm lazy. It's because the reason I got into this job was writing code. Creating things. Breaking problems down. Creating abstractions. Watching them come alive. Watching them break under pressure.
+
+Reading code was never the destination. In fact, in every single team I've worked in, and I've worked in quite a few, people hated reviewing code. If you recall, code review was one of the first things we wanted to outsource to AI.
+
+And here's another harsh and unfortunate truth: models are really, really fucking good now. They absolutely make mistakes — yet the code they're capable of producing, en masse, is staggeringly good. Much, much better than whatever I was coming across 4–5 years ago in large production codebases used by millions of people every day.
+
+…and yet, at least the authors of those codebases understood the rationale behind their engineering decisions. You could walk up to someone and get a straight answer as to why they did something funky in a PR.
+
+The rationale still exists today, yet it's all buried in our agent chats. And our tools are extraordinarily bad at extracting conclusions from those chats — and they make no attempt to help you share any of that knowledge with the rest of your team. It's all lost in the abyss of GitHub Copilot chats persisted locally on my company machine.
+
+## Closing words
+
+I owe you a formal apology. The above sounds as though I hate everything. All is bad. Nothing works. It would be very Eastern European of me to end it on that note.
+
+On a personal note: the reality is that I've never had more fun programming. It was never the data structures, the design patterns, or the frameworks that I fell in love with. It was creating. Shaping the world, one line at a time.
+
+And today, I get to do that so much quicker than I ever could. Years from idea to reality collapse to just months. Often weeks. Sometimes days.
+
+And I've been getting to focus a lot more on what truly excites me about all of this: crafting truly delightful and intuitive user experiences. Tuning into the frequency of each little user intent. What would've been mundane a few years ago can, today, be given that extra bit of love. I love it here.
+
+This week, I launched my first labour of love. [Pupil](https://pupil.otakomaiya.com). It would've taken years for me to launch this if it weren't for AI. It would've been a lot more mundane and bleak if it weren't for AI. Today, Pupil is full of love. Full of micro-interactions that I've obsessed over.
+
+This weekend, I'll be sharing my follow-up blog post to this. A more hopeful piece looking ahead at what I think is next for software engineering. With it, a project we've been building that we think will reshape how you think about building software.

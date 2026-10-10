@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { projects, statusLabels } from 'app/projects/data'
 import type { Project } from 'app/projects/data'
+import { SectionHead } from 'app/components/section-head'
+import { SecretCard } from 'app/components/secret-card'
 
 type Filter = 'all' | Project['category']
 
@@ -16,6 +18,13 @@ const allFilters: { key: Filter; label: string; count: number }[] = [
 
 const filters = allFilters.filter((f) => f.count > 0 || f.key === 'all')
 
+function trackSpotlight(e: React.MouseEvent<HTMLDivElement>) {
+  const el = e.currentTarget
+  const rect = el.getBoundingClientRect()
+  el.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+  el.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
+
 function StatusDot({ status }: { status: Project['status'] }) {
   const color =
     status === 'completed'
@@ -26,14 +35,63 @@ function StatusDot({ status }: { status: Project['status'] }) {
   return <span className={`inline-block w-1.5 h-1.5 rounded-full ${color}`} />
 }
 
+function ProjectCard({ p }: { p: Project }) {
+  return (
+    <div
+      onMouseMove={trackSpotlight}
+      className="spot-card rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 transition-all hover:border-[var(--border-hover)]"
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <StatusDot status={p.status} />
+        <span className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
+          {statusLabels[p.status]}
+        </span>
+        {p.toy && (
+          <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-amber-800/50 text-amber-400/80">
+            Toy
+          </span>
+        )}
+        {p.openSource && (
+          <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-emerald-800/50 text-emerald-400/80">
+            OSS
+          </span>
+        )}
+      </div>
+      {p.url ? (
+        <a
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-base font-semibold text-[var(--text-primary)] hover:underline underline-offset-3 inline-block mb-1"
+        >
+          {p.title}
+        </a>
+      ) : (
+        <h3 className="text-base font-semibold text-[var(--text-primary)] mb-1">{p.title}</h3>
+      )}
+      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{p.description}</p>
+      <div className="flex flex-wrap gap-1.5 mt-3">
+        {p.tech.map((t) => (
+          <span
+            key={t}
+            className="font-[family-name:var(--font-mono)] text-[10px] px-2 py-0.5 rounded-full border border-[var(--border)] text-[var(--text-tertiary)]"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function ProjectFilters() {
   const [filter, setFilter] = useState<Filter>('all')
   const filtered = filter === 'all' ? projects : projects.filter((p) => p.category === filter)
 
   return (
     <>
-      <div className="flex items-center gap-2 sm:gap-3 mb-5 flex-wrap">
-        <p className="eyebrow font-[family-name:var(--font-mono)] !mb-0 mr-2">Projects</p>
+      <SectionHead index="03" title="Projects" meta={`${projects.length} built`} />
+      <div className="flex items-center gap-1.5 sm:gap-2 mb-5 flex-wrap">
         {filters.map((f) => (
           <button
             key={f.key}
@@ -51,50 +109,7 @@ export function ProjectFilters() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {filtered.map((p) => (
-          <div
-            key={p.title}
-            className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 transition-all hover:border-[var(--border-hover)]"
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <StatusDot status={p.status} />
-              <span className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
-                {statusLabels[p.status]}
-              </span>
-              {p.toy && (
-                <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-amber-800/50 text-amber-400/80">
-                  Toy
-                </span>
-              )}
-              {p.openSource && (
-                <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-emerald-800/50 text-emerald-400/80">
-                  OSS
-                </span>
-              )}
-            </div>
-            {p.url ? (
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-[var(--text-primary)] hover:underline underline-offset-3 inline-block mb-1"
-              >
-                {p.title}
-              </a>
-            ) : (
-              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-1">{p.title}</h3>
-            )}
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{p.description}</p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {p.tech.map((t) => (
-                <span
-                  key={t}
-                  className="font-[family-name:var(--font-mono)] text-[10px] px-2 py-0.5 rounded-full border border-[var(--border)] text-[var(--text-tertiary)]"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
+          p.secret ? <SecretCard key={p.title} p={p} /> : <ProjectCard key={p.title} p={p} />
         ))}
         {filtered.length === 0 && (
           <p className="col-span-2 text-sm text-[var(--text-tertiary)] text-center py-8">No projects here yet.</p>

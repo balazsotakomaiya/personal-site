@@ -8,6 +8,8 @@ export interface Project {
   year?: string;
   toy?: boolean;
   openSource?: boolean;
+  /** Unannounced: rendered as a dark card the cursor lights like a torch. */
+  secret?: boolean;
 }
 
 export interface Experience {
@@ -28,6 +30,17 @@ export interface Venture {
 
 export const projects: Project[] = [
   {
+    title: 'Althar',
+    description: 'Beautiful project orchestration environment (IDE) for software engineering with AI agents. Bring your own subscription. Open source.',
+    tech: ['AI', 'Agents', 'Desktop'],
+    category: 'ai',
+    status: 'in-progress',
+    year: '2026',
+    openSource: true,
+    secret: true,
+    url: 'https://althar.ai',
+  },
+  {
     title: 'Pupil',
     description: 'AI-powered flashcard hub for deep learning. Generates, organizes, and adapts cards to your knowledge gaps with spaced repetition.',
     tech: ['Rust', 'React', 'Tauri', 'AI'],
@@ -35,16 +48,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
-    url: 'https://github.com/balazsotakomaiya/pupil',
-  },
-  {
-    title: 'Vigil',
-    description: 'TanStack Query for Flutter. Cached, stale-aware data fetching with a mixin-based API — no code generation, no boilerplate, no ceremony.',
-    tech: ['Dart', 'Flutter'],
-    category: 'mobile',
-    status: 'in-progress',
-    year: '2026',
-    openSource: true,
+    url: 'https://pupil.otakomaiya.com',
   },
   {
     title: 'Sigil',

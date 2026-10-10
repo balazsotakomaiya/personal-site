@@ -4,6 +4,8 @@ import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
 import { Vinyl } from './vinyl'
+import { Tweet } from './tweet'
+import { FloorIsLava, HarnessPrimer, SubscriptionStack } from './ai-era-interactives'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -242,6 +244,10 @@ let components = {
   TokenScale,
   ExtractionPipeline,
   MemoryLifecycle,
+  FloorIsLava,
+  HarnessPrimer,
+  SubscriptionStack,
+  Tweet,
 }
 
 export function CustomMDX(props) {

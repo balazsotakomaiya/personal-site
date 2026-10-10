@@ -7,14 +7,9 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-12 sm:mt-20">
+    <footer className="mt-auto pt-12 sm:pt-20">
       <div className="section-divider" />
       <div className="flex flex-col items-center gap-3 sm:gap-5 py-6 sm:py-10">
-        <p
-          className="font-[family-name:var(--font-display)] text-[13px] sm:text-[15px] text-[var(--text-tertiary)] tracking-[-0.3px]"
-        >
-          my den
-        </p>
         <div className="flex items-center flex-wrap justify-center gap-0 text-[var(--text-tertiary)]">
           {links.map(({ label, href }, i) => (
             <span key={label} className="flex items-center">
@@ -39,6 +34,9 @@ export default function Footer() {
             Balazs Otakomaiya
           </a>
         </p>
+      </div>
+      <div className="footer-wordmark" aria-hidden="true">
+        <span>my den</span>
       </div>
     </footer>
   )

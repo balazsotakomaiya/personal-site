@@ -1,5 +1,7 @@
 import { BlogPosts } from 'app/components/posts'
 import { ProjectFilters } from 'app/components/project-filters'
+import { SectionHead } from 'app/components/section-head'
+import { getBlogPosts } from 'app/blog/utils'
 import { experiences, ventures } from 'app/projects/data'
 import Image from 'next/image'
 
@@ -10,6 +12,10 @@ const H1_BASE = 'text-[clamp(32px,5vw,48px)] leading-[1.15] tracking-tight hero-
 const PARA_BASE = 'text-[15px] leading-relaxed text-[var(--text-secondary)] hero-line'
 
 export default function Page() {
+  const postCount = getBlogPosts().length
+  const firstYear = Number(experiences[experiences.length - 1].period.slice(0, 4))
+  const yearsShipping = new Date().getFullYear() - firstYear
+
   return (
     <section>
       {/* Hero */}
@@ -80,10 +86,10 @@ export default function Page() {
       </div>
 
       {/* Social links */}
-      <div className="flex items-center gap-3 mb-0">
+      <div className="flex items-center gap-2 flex-wrap hero-line" style={{ animationDelay: '700ms' }}>
         {[
           { label: 'LinkedIn', href: 'https://www.linkedin.com/in/balazsotakomaiya/' },
-          // { label: 'LeetCode', href: 'https://leetcode.com/u/balazsotakomaiya/' },
+          { label: 'GitHub', href: 'https://github.com/balazsotakomaiya' },
           { label: 'Email', href: 'mailto:balazs@otakomaiya.com' },
         ].map(({ label, href }) => (
           <a
@@ -91,18 +97,19 @@ export default function Page() {
             href={href}
             target={href.startsWith('mailto') ? undefined : '_blank'}
             rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-            className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-wider text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+            className="chip-link"
           >
             {label}
+            <span className="chip-arrow" aria-hidden="true">↗</span>
           </a>
         ))}
       </div>
-      
+
       <div className="section-divider" />
 
       {/* Blog */}
       <div>
-        <p className="eyebrow font-[family-name:var(--font-mono)] mb-6">Recent Writing</p>
+        <SectionHead index="01" title="Writing" meta={`${postCount} ${postCount === 1 ? 'post' : 'posts'}`} />
         <BlogPosts />
       </div>
 
@@ -110,23 +117,17 @@ export default function Page() {
 
       {/* Career */}
       <div className="mb-0">
-        <p className="eyebrow font-[family-name:var(--font-mono)]">Career</p>
-        <div className="space-y-0">
+        <SectionHead index="02" title="Career" meta={`${yearsShipping} years`} />
+        <div>
           {experiences.map((exp, i) => {
             const isCurrent = i === 0
             return (
-              <div
-                key={exp.company}
-                className="group py-4"
-                style={{
-                  borderBottom: i < experiences.length - 1 ? '1px solid var(--border)' : undefined,
-                }}
-              >
-                <div className="flex items-baseline justify-between gap-4 mb-1">
-                  <div className="flex items-center gap-2.5">
-                    {isCurrent && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                    )}
+              <div key={exp.company} className="career-row">
+                <span className="career-period">
+                  {isCurrent ? exp.period.replace('Present', 'Now') : exp.period}
+                </span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2.5 flex-wrap">
                     <a
                       href={exp.url}
                       target="_blank"
@@ -135,26 +136,30 @@ export default function Page() {
                     >
                       {exp.company}
                     </a>
-                  </div>
-                  <span className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--text-tertiary)] shrink-0 tabular-nums">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed pl-0">
-                  {exp.description}
-                </p>
-                {exp.highlights && (
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {exp.highlights.map((h) => (
-                      <span
-                        key={h}
-                        className="font-[family-name:var(--font-mono)] text-[10px] px-2 py-0.5 rounded-full border border-[var(--border)] text-[var(--text-tertiary)]"
-                      >
-                        {h}
+                    {isCurrent && (
+                      <span className="now-pill">
+                        <span className="now-dot" aria-hidden="true" />
+                        Current
                       </span>
-                    ))}
+                    )}
                   </div>
-                )}
+                  <p className="text-[13px] text-[#a8a8a8] mt-0.5">{exp.role}</p>
+                  <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed mt-1.5">
+                    {exp.description}
+                  </p>
+                  {exp.highlights && (
+                    <div className="flex flex-wrap gap-1.5 mt-2.5">
+                      {exp.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="font-[family-name:var(--font-mono)] text-[10px] px-2 py-0.5 rounded-full border border-[var(--border)] text-[var(--text-tertiary)]"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )
           })}
@@ -171,12 +176,12 @@ export default function Page() {
       <div className="section-divider" />
 
       {/* Venture */}
+      <SectionHead index="04" title="Venture" meta={ventures[0] ? `Est. ${ventures[0].founded}` : undefined} />
       {ventures.map((v) => (
         <div
           key={v.name}
           className="mb-0 py-5 px-5 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)]"
         >
-          <p className="eyebrow font-[family-name:var(--font-mono)]">Venture</p>
           <a
             href={v.url}
             target="_blank"

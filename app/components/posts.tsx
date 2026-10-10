@@ -16,19 +16,11 @@ export function BlogPosts() {
           return 1
         })
         .map((post) => (
-          <Link
-            key={post.slug}
-            className="group flex items-baseline justify-between gap-4 py-3"
-            href={`/blog/${post.slug}`}
-            style={{
-              borderBottom: '1px solid var(--border)',
-            }}
-          >
-            <p className="text-[15px] text-[var(--text-primary)] group-hover:underline underline-offset-3 tracking-tight">
-              {post.metadata.title}
-            </p>
-            <span className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--text-tertiary)] tabular-nums shrink-0">
-              {formatDate(post.metadata.publishedAt, false)}
+          <Link key={post.slug} className="post-row" href={`/blog/${post.slug}`}>
+            <p className="post-title">{post.metadata.title}</p>
+            <span className="post-date">{formatDate(post.metadata.publishedAt, false)}</span>
+            <span className="post-arrow" aria-hidden="true">
+              →
             </span>
           </Link>
         ))}
