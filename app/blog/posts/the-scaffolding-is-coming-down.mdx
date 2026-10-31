@@ -1,0 +1,48 @@
+---
+title: 'The scaffolding is coming down'
+publishedAt: '2026-10-30'
+image: '/the-scaffolding-is-coming-down-og.png'
+summary: 'Smarter models seem to need less spoon-feeding. Plans, subagents, custom reviewers, skills — much of the ceremony we built around agents is quietly becoming obsolete.'
+draft: 'false'
+---
+
+<Tweet
+  url="https://x.com/thdxr/status/2107260844400931156"
+  name="dax"
+  handle="thdxr"
+  avatar="https://pbs.twimg.com/profile_images/1602333093485891584/mmVqjFNI_200x200.jpg"
+  date="Oct 6, 2026"
+  text={"a weird inversion with LLMs is the models improve faster than the tinkerers\n\nwhen i see people with custom workflows and setups they're all addressing problems that don't exist anymore\n\nthe person naively using vanilla codex is more likely to be experiencing state of the art"}
+/>
+
+As AI models get smarter, it is increasingly evident that some of our old ways of working with them must also shift.
+
+The word *old* is rather odd here. Paradigm shifts in software engineering used to occur every few years. How we fundamentally work with our tools, every decade or so. I've not had to live through one before. Or rather, I've already lived through and adapted to a dozen since the release of ChatGPT in 2023.
+
+Opus 5.5 really seemed to be one of those paradigm shifts for me. You see, only a few months ago, it seemed like the ideal workflow was: use a smart agent to plan, and one or many subagents, usually cheaper models, to do the work. Then a smart model again for a review. Perhaps it was you doing the code review. Then you yourself would do most of the testing.
+
+Much of this has started to shift this year. Incredibly smart models started becoming cheap. Open source models started the wave, frontier followed.
+
+All of a sudden, it made no sense to make a plan, review it yourself, then hand it off to another agent. You'd really lose a lot of time, and save very little money. You'd also sort of strip yourself of prompt caching.
+
+And so now, we've skipped the whole ceremony around making the plans, us reviewing them, then handing them to another agent.
+
+And with Opus, it appears we're also skipping much of the manual testing. Unprompted, Opus 5.5 seems to do end-to-end verification of its work. Take screenshots, produce evidence. The whole thing.
+
+---
+
+Another example of this, I find, is skills and custom agents. It used to make a lot of sense to utilise these heavily. Though I've always thought them to be pretty crude ceremony that people put a lot more thought into than they deserved.
+
+Nevertheless, not so long ago, they made a lot of sense. Custom reviewer agent, execution agent, testing agent, business analyst — some people invented dozens of these things. Skills, even worse. The adventurous ones built custom LLM-as-Judge eval suites to detect quality shifts, and iterate safely.
+
+Today, without pretty much any nudging, Opus can deliver staggeringly great results. I sense the same fate awaits many similar pieces of "scaffolding" as time progresses.
+
+Auto model routers, for one, were always a rather stupid idea. And I would argue many of these token-efficiency, codebase-mapping tools (graphify, for example) will become obsolete in no time.
+
+---
+
+The scope of what agents are capable of is broadening. It is a rather humbling experience to have to re-learn my ways of working. I sense the abstraction at which we operate will continue to shift for a while.
+
+Our tools still haven't quite caught up yet. They often feel like duct tape around temporary issues — or clinging onto relics of the past, as far as our way of working goes.
+
+Chiselling code by hand isn't economically viable anymore. Coding, perhaps, for the most part, might shift to be a much more casual activity.

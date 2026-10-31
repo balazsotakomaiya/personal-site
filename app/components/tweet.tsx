@@ -56,6 +56,7 @@ const s: Record<string, CSSProperties> = {
     lineHeight: 1.5,
     letterSpacing: -0.1,
     color: 'var(--text-primary)',
+    whiteSpace: 'pre-line',
   },
   foot: {
     display: 'flex',
