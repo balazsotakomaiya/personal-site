@@ -146,17 +146,16 @@ function Csv() {
    and the agents sit two by two. */
 const AGENTS: {
   model: string
-  lab: string
   task: string
   pr: number
   step: string
   done: number
   ready?: boolean
 }[] = [
-  { model: 'Opus 5.5', lab: 'Anthropic', task: 'Write the git post', pr: 6, step: 'Ready to accept', done: 4, ready: true },
-  { model: 'GPT-6.1 Sol', lab: 'OpenAI', task: 'Lay out the bento', pr: 7, step: 'Review', done: 2 },
-  { model: 'Gemini 3 Pro', lab: 'Google', task: 'Update the intro', pr: 6, step: 'Security review', done: 3 },
-  { model: 'Qwen3 Coder', lab: 'Alibaba', task: 'Draw the tiles', pr: 8, step: 'Implement', done: 1 },
+  { model: 'Opus 5.5', task: 'Write the git post', pr: 6, step: 'Ready to accept', done: 4, ready: true },
+  { model: 'GPT-6.1 Sol', task: 'Lay out the bento', pr: 7, step: 'Review', done: 2 },
+  { model: 'Gemini 3 Pro', task: 'Update the intro', pr: 6, step: 'Security review', done: 3 },
+  { model: 'Qwen3 Coder', task: 'Draw the tiles', pr: 8, step: 'Implement', done: 1 },
 ]
 
 /* The lines are drawn in the tile's own pixels at the site's 680px
@@ -208,12 +207,10 @@ function AltharArt() {
         {AGENTS.map((a, i) => (
           <div key={a.model} className={`aa-card ${a.ready ? 'aa-card-ready' : ''}`}>
             <span className={`${MONO} flex justify-between text-[9px] text-[var(--text-tertiary)]`}>
-              <span>#{a.pr}</span>
-              <span>{430 + i}</span>
+              <span>Task {430 + i}</span>
+              <span>PR #{a.pr}</span>
             </span>
-            <span className="text-[13px] text-[var(--text-primary)] mt-1.5">{a.model}</span>
-            <span className="text-[11px] text-[var(--text-tertiary)]">{a.lab}</span>
-            <span className={`${MONO} text-[9px] text-[var(--text-tertiary)] mt-1 truncate`}>{a.task}</span>
+            <span className="text-[13px] leading-snug text-[var(--text-primary)] mt-1.5">{a.task}</span>
             <span className="aa-bar">
               {[0, 1, 2, 3].map((n) => (
                 <span key={n} className={n < a.done ? 'aa-seg-done' : n === a.done ? 'aa-seg-now' : ''} />
@@ -225,6 +222,9 @@ function AltharArt() {
                 <span className="truncate">{a.step}</span>
               </span>
               {!a.ready && <span className="text-[var(--text-tertiary)] tabular-nums">{a.done}/4</span>}
+            </span>
+            <span className="text-[10px] text-[var(--text-tertiary)] mt-2.5 pt-2 border-t border-[var(--border)] truncate">
+              <span className="text-[var(--text-secondary)]">{a.model}</span> leads
             </span>
           </div>
         ))}
