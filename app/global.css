@@ -2361,15 +2361,13 @@ table {
 
 /* ─── Featured project (bento) ─── */
 
-/* The card takes the drawing's own warm black, so the drawing has no
-   edge: it fades out at the bottom into the words. */
 .featured-card {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background: #0e0a08;
+  background: var(--bg-subtle);
   transition: border-color 0.25s;
 }
 
@@ -2377,14 +2375,190 @@ table {
   border-color: rgba(85, 99, 255, 0.3);
 }
 
-.featured-art {
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
-  mask-image: linear-gradient(to bottom, #000 70%, transparent);
-}
-
 .featured-mark {
   width: 22px;
   height: 19px;
+}
+
+/* Althar's drawing. Its blue is Althar's cobalt lifted for dark grounds
+   (#5563ff): the work that's running. Green is the site's own, for done. */
+.aa {
+  position: relative;
+  padding: 20px 0 28px;
+  background:
+    radial-gradient(60% 55% at 50% 30%, rgba(85, 99, 255, 0.08), transparent 70%),
+    radial-gradient(circle, #1c1c1c 1px, transparent 1px) 0 0 / 14px 14px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent);
+}
+
+.aa-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 300px;
+  overflow: visible;
+}
+
+.aa-line,
+.aa-glint {
+  fill: none;
+}
+
+.aa-line {
+  stroke: rgba(85, 99, 255, 0.28);
+  stroke-width: 1;
+}
+
+/* A short dash of light that runs the length of its line. */
+.aa-glint {
+  stroke: #8f99ff;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.12 2;
+  stroke-dashoffset: 0.12;
+  filter: drop-shadow(0 0 3px #5563ff);
+  animation: aa-run 2.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+@keyframes aa-run {
+  0% { stroke-dashoffset: 0.12; opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { stroke-dashoffset: -1; opacity: 0; }
+}
+
+.aa-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  margin-left: 50%;
+  transform: translateX(-22px);
+  width: max-content;
+}
+
+.aa-fork {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-hover);
+  background: #0c0c0c;
+  color: var(--text-primary);
+  box-shadow: 0 0 0 6px rgba(85, 99, 255, 0.05);
+}
+
+.aa-fork::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px 2px rgba(85, 99, 255, 0.45);
+  opacity: 0;
+  animation: aa-breathe 2.8s ease-in-out infinite;
+}
+
+@keyframes aa-breathe {
+  0%, 100% { opacity: 0.15; }
+  20% { opacity: 1; }
+}
+
+.aa-cards {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8%;
+  padding: 0 3.5%;
+  margin-top: 86px;
+}
+
+.aa-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 10px 11px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--border-hover);
+  background: linear-gradient(to bottom, #161616, #111);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color: #8f99ff;
+}
+
+.aa-card-ready {
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.aa-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-top: 10px;
+}
+
+.aa-bar span {
+  height: 2px;
+  border-radius: 1px;
+  background: #262626;
+}
+
+.aa-bar .aa-seg-done { background: currentColor; }
+
+/* The step under way: light sweeps along it. */
+.aa-bar .aa-seg-now {
+  background: linear-gradient(90deg, #262626 20%, currentColor 50%, #262626 80%) 0 0 / 250% 100%;
+  animation: aa-sweep 1.6s linear infinite;
+}
+
+@keyframes aa-sweep {
+  from { background-position: 100% 0; }
+  to { background-position: 0% 0; }
+}
+
+.aa-dot {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+@media (max-width: 639px) {
+  .aa-lines { display: none; }
+
+  .aa-node {
+    margin-left: 0;
+    transform: none;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .aa-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 20px;
+    margin-top: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aa-glint { display: none; }
+
+  .aa-fork::after,
+  .aa-bar .aa-seg-now {
+    animation: none;
+  }
+
+  .aa-bar .aa-seg-now {
+    background: linear-gradient(90deg, currentColor 50%, #262626 50%);
+  }
 }
 
 /* ─── Bento tiles ─── */
