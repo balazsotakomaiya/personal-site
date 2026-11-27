@@ -10,6 +10,20 @@ export interface Project {
   openSource?: boolean;
   /** Unannounced: rendered as a dark card the cursor lights like a torch. */
   secret?: boolean;
+  /** The bento's top tile: the full width, with `art` shown whole above the words. */
+  featured?: boolean;
+  /** Columns out of six this card takes in the bento. Defaults to three. */
+  span?: 2 | 3 | 4 | 6;
+  /** Rows this card takes in the bento. Defaults to one. */
+  rows?: 1 | 2;
+  /** The drawing at the top of the card (app/components/project-visuals.tsx). */
+  visual?: 'pupil' | 'sigil' | 'octo' | 'stopwatch' | 'vector' | 'csv';
+  /** Source code, when it lives somewhere other than `url`. */
+  repo?: string;
+  /** A drawing of the project, shown in the featured tile. */
+  art?: string;
+  /** The project's own mark, shown in the featured tile. */
+  mark?: string;
 }
 
 export interface Experience {
@@ -37,8 +51,22 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
-    secret: true,
+    featured: true,
     url: 'https://althar.ai',
+    repo: 'https://github.com/AltharIDE/althar',
+    art: '/althar/agents.jpg',
+    mark: '/althar/mark.svg',
+  },
+  {
+    title: 'Octo',
+    description: 'Consumer marketplace app for booking home services like cleaning, built with provider onboarding, payments, and marketplace operations end-to-end.',
+    tech: ['Flutter', 'Stripe Connect', 'Laravel'],
+    category: 'mobile',
+    status: 'completed',
+    year: '2026',
+    span: 2,
+    visual: 'octo',
+    url: 'https://octoapp.hu/',
   },
   {
     title: 'Pupil',
@@ -48,6 +76,8 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
+    span: 2,
+    visual: 'pupil',
     url: 'https://pupil.otakomaiya.com',
   },
   {
@@ -58,16 +88,9 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2026',
     openSource: true,
+    span: 2,
+    visual: 'sigil',
     url: 'https://sigil.otakomaiya.com',
-  },
-  {
-    title: 'Octo',
-    description: 'Consumer marketplace app for booking home services like cleaning, built with provider onboarding, payments, and marketplace operations end-to-end.',
-    tech: ['Flutter', 'Stripe Connect', 'Laravel'],
-    category: 'mobile',
-    status: 'completed',
-    year: '2026',
-    url: 'https://octoapp.hu/',
   },
   {
     title: 'iOS Stopwatch Imitation',
@@ -77,6 +100,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2023',
     toy: true,
+    span: 3,
+    visual: 'stopwatch',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/stopwatch',
   },
   {
@@ -87,6 +112,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2025',
     toy: true,
+    span: 3,
+    visual: 'vector',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/custom-vector',
   },
   {
@@ -97,6 +124,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2025',
     toy: true,
+    span: 6,
+    visual: 'csv',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/csv-parser',
   },
 ];

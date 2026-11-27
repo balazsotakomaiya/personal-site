@@ -189,6 +189,14 @@ transition: border-color on hover -> var(--border-hover);
 
 Project cards use `.spot-card`: a soft white radial spotlight that follows the cursor (`--mx`/`--my` set on mousemove).
 
+### Projects bento
+
+The Projects grid is a six-column bento on `sm:` and up. Each project's `span` (columns: 2, 3, 4 or 6) and `rows` (1 or 2) in `app/projects/data.ts` place it; `grid-flow-dense` fills the gaps. Only "All" uses the bento: a filtered list is two-up. The featured project always takes the full width, at the top.
+
+- **Featured tile** (`featured: true`, Althar): the full width, with the project's own drawing (`art`, from Althar's brand drawings) shown whole on top and fading into the card, which takes the drawing's warm black (`#0e0a08`) so there is no edge. Below it, the mark, a serif italic title and the link chips. On hover the border takes Althar's cobalt lifted for dark grounds (`#5563ff`), the one place that colour is the site's own.
+- **Tiles** (`.bento-card`): a 128px drawing band (`.pv`) on top. A two-row tile stretches the band; a wide one-row tile (four columns or more) puts it on the right.
+- **Drawings** (`app/components/project-visuals.tsx`, `visual` in the data) are small pictures of what the project does, drawn in the site's greys rather than screenshotted, so they don't go stale. Hover moves them a little; with reduced motion they stay still.
+
 ---
 
 ## Project Status
@@ -233,4 +241,4 @@ All interactive transitions:
 | Breakpoint | Changes |
 |---|---|
 | `<= 640px` | Page padding shrinks to 20px, section divider margin to 32px, vertical rulers hidden |
-| `sm:` (640px+) | Project grid goes to 2 columns |
+| `sm:` (640px+) | Project grid goes to the six-column bento |

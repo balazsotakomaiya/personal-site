@@ -23,7 +23,7 @@ function trackPointer(e: MouseEvent<HTMLElement>) {
 /* A project that isn't announced yet. The card stays dark and the cursor
    lights it like a torch; on touch, the first tap reveals it and the
    second follows the link. */
-export function SecretCard({ p }: { p: Project }) {
+export function SecretCard({ p, className = '' }: { p: Project; className?: string }) {
   const [open, setOpen] = useState(false)
 
   const onClick = (e: MouseEvent) => {
@@ -63,7 +63,7 @@ export function SecretCard({ p }: { p: Project }) {
       href={p.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={s.card}
+      className={`${s.card} ${className}`}
       data-open={open || undefined}
       onClick={onClick}
       onMouseMove={trackPointer}
@@ -71,7 +71,7 @@ export function SecretCard({ p }: { p: Project }) {
       {body}
     </a>
   ) : (
-    <div className={s.card} data-open={open || undefined} onClick={() => setOpen(true)} onMouseMove={trackPointer}>
+    <div className={`${s.card} ${className}`} data-open={open || undefined} onClick={() => setOpen(true)} onMouseMove={trackPointer}>
       {body}
     </div>
   )
