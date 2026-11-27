@@ -48,15 +48,29 @@ function Sigil() {
   )
 }
 
+const DAYS = ['M', 'T', 'W', 'T', 'F', 'S']
+const SLOTS = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00']
+
 function Octo() {
   return (
-    <div className="flex items-end justify-center h-full pt-5">
+    <div className="flex items-start justify-center h-full pt-4">
       <div className="pv-phone">
         <span className="pv-notch" />
         <span className="text-[11px] font-semibold text-[var(--text-primary)]">Book a clean</span>
-        <div className="pv-row">
-          <span>Tue · 10:00</span>
-          <span className="text-[var(--text-tertiary)]">2h</span>
+        <div className="pv-days">
+          {DAYS.map((d, i) => (
+            <span key={i} className={i === 1 ? 'pv-on' : ''}>
+              <b>{d}</b>
+              {12 + i}
+            </span>
+          ))}
+        </div>
+        <div className="pv-slots">
+          {SLOTS.map((t) => (
+            <span key={t} className={t === '10:00' ? 'pv-on' : t === '14:00' ? 'pv-gone' : ''}>
+              {t}
+            </span>
+          ))}
         </div>
         <div className="pv-row">
           <span>Deep clean</span>

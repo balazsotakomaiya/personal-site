@@ -91,40 +91,45 @@ function ProjectCard({ p, className = '', side = false }: { p: Project; classNam
   )
 }
 
-/* The bento's large tile: the project gets its mark, room to breathe and a
-   screenshot that runs off the card's bottom-right corner. */
+/* The bento's top tile: the project's own drawing across the full width,
+   shown whole, and the words beneath it as on every other tile. */
 function FeaturedCard({ p, className = '' }: { p: Project; className?: string }) {
   return (
     <div onMouseMove={trackSpotlight} className={`spot-card featured-card ${className}`}>
-      <div className="relative z-[1] p-5 sm:p-6">
-        <div className="flex items-center gap-2 mb-5">
-          {p.mark && <img src={p.mark} alt="" aria-hidden="true" className="featured-mark" />}
-          <StatusDot status={p.status} />
-          <span className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
-            {statusLabels[p.status]}
-          </span>
-          {p.openSource && (
-            <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-emerald-800/50 text-emerald-400/80">
-              OSS
-            </span>
-          )}
-          {p.year && (
-            <span className="ml-auto font-[family-name:var(--font-mono)] text-[10px] text-[var(--text-tertiary)] tracking-wider">
-              {p.year}
-            </span>
-          )}
+      {p.art && (
+        <div className="featured-art">
+          <Image
+            src={p.art}
+            alt={`${p.title}: one project's work going to agents from four labs, each in its own worktree`}
+            width={1600}
+            height={1000}
+            sizes="(min-width: 680px) 680px, 100vw"
+            className="block w-full h-auto"
+          />
         </div>
-        <h3 className="font-[family-name:var(--font-serif)] italic text-[34px] leading-none text-[var(--text-primary)] mb-3">
-          {p.url ? (
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-1">
+      )}
+      <div className="relative px-5 pb-5 sm:px-6 sm:pb-6 sm:flex sm:items-end sm:justify-between sm:gap-8">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 mb-3">
+            <StatusDot status={p.status} />
+            <span className="font-[family-name:var(--font-mono)] text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
+              {statusLabels[p.status]}
+            </span>
+            {p.openSource && (
+              <span className="font-[family-name:var(--font-mono)] text-[10px] px-1.5 py-0.5 rounded-full border border-emerald-800/50 text-emerald-400/80">
+                OSS
+              </span>
+            )}
+          </div>
+          <h3 className="flex items-center gap-2.5 mb-2">
+            {p.mark && <img src={p.mark} alt="" aria-hidden="true" className="featured-mark" />}
+            <span className="font-[family-name:var(--font-serif)] italic text-[30px] leading-none text-[var(--text-primary)]">
               {p.title}
-            </a>
-          ) : (
-            p.title
-          )}
-        </h3>
-        <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-[400px]">{p.description}</p>
-        <div className="flex items-center gap-2 flex-wrap mt-4">
+            </span>
+          </h3>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-[400px]">{p.description}</p>
+        </div>
+        <div className="flex items-center gap-2 mt-4 sm:mt-0 shrink-0">
           {p.url && (
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="chip-link">
               {p.url.replace(/^https?:\/\//, '')}
@@ -139,30 +144,18 @@ function FeaturedCard({ p, className = '' }: { p: Project; className?: string })
           )}
         </div>
       </div>
-      {p.shot && (
-        <div className="featured-shot">
-          <Image
-            src={p.shot}
-            alt={`${p.title}: agents' work on a board, up next, running and needing you`}
-            width={1200}
-            height={1149}
-            sizes="(min-width: 640px) 420px, 90vw"
-            className="block w-full"
-          />
-        </div>
-      )}
     </div>
   )
 }
 
-/* Spans out of six columns. "All" gets the bento as the data lays it out.
-   A filtered list is two-up, or, when it holds the featured project,
-   that project beside narrow cards. */
+/* Spans out of six columns. "All" gets the bento as the data lays it out;
+   a filtered list is two-up. The featured project always takes the full
+   width, at the top. */
 const COLS = { 2: 'sm:col-span-2', 3: 'sm:col-span-3', 4: 'sm:col-span-4', 6: 'sm:col-span-6' }
 
-function spanClass(p: Project, bento: boolean, hasFeatured: boolean) {
-  if (p.featured) return bento ? 'sm:col-span-4 sm:row-span-2' : 'sm:col-span-4'
-  if (!bento) return hasFeatured ? 'sm:col-span-2' : 'sm:col-span-3'
+function spanClass(p: Project, bento: boolean) {
+  if (p.featured) return 'sm:col-span-6'
+  if (!bento) return 'sm:col-span-3'
   return `${COLS[p.span ?? 3]} ${p.rows === 2 ? 'sm:row-span-2' : ''}`
 }
 
@@ -196,7 +189,7 @@ export function ProjectFilters() {
 
       <div className="grid grid-cols-1 sm:grid-cols-6 sm:grid-flow-dense gap-3">
         {filtered.map((p) => {
-          const span = spanClass(p, filter === 'all', filtered.some((f) => f.featured))
+          const span = spanClass(p, filter === 'all')
           if (p.featured) return <FeaturedCard key={p.title} p={p} className={span} />
           if (p.secret) return <SecretCard key={p.title} p={p} className={span} />
           return <ProjectCard key={p.title} p={p} className={span} side={isSide(p, filter === 'all')} />
