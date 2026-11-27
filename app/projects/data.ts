@@ -10,6 +10,20 @@ export interface Project {
   openSource?: boolean;
   /** Unannounced: rendered as a dark card the cursor lights like a torch. */
   secret?: boolean;
+  /** The bento's large tile: four columns by two rows, with a screenshot. */
+  featured?: boolean;
+  /** Columns out of six this card takes in the bento. Defaults to three. */
+  span?: 2 | 3 | 4 | 6;
+  /** Rows this card takes in the bento. Defaults to one. */
+  rows?: 1 | 2;
+  /** The drawing at the top of the card (app/components/project-visuals.tsx). */
+  visual?: 'pupil' | 'sigil' | 'octo' | 'stopwatch' | 'vector' | 'csv';
+  /** Source code, when it lives somewhere other than `url`. */
+  repo?: string;
+  /** A screenshot shown in the featured tile. */
+  shot?: string;
+  /** The project's own mark, shown in the featured tile. */
+  mark?: string;
 }
 
 export interface Experience {
@@ -37,8 +51,11 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
-    secret: true,
+    featured: true,
     url: 'https://althar.ai',
+    repo: 'https://github.com/AltharIDE/althar',
+    shot: '/althar/board.jpg',
+    mark: '/althar/mark.svg',
   },
   {
     title: 'Pupil',
@@ -48,6 +65,8 @@ export const projects: Project[] = [
     status: 'in-progress',
     year: '2026',
     openSource: true,
+    span: 2,
+    visual: 'pupil',
     url: 'https://pupil.otakomaiya.com',
   },
   {
@@ -58,6 +77,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2026',
     openSource: true,
+    span: 2,
+    visual: 'sigil',
     url: 'https://sigil.otakomaiya.com',
   },
   {
@@ -67,6 +88,9 @@ export const projects: Project[] = [
     category: 'mobile',
     status: 'completed',
     year: '2026',
+    span: 2,
+    rows: 2,
+    visual: 'octo',
     url: 'https://octoapp.hu/',
   },
   {
@@ -77,6 +101,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2023',
     toy: true,
+    span: 2,
+    visual: 'stopwatch',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/stopwatch',
   },
   {
@@ -87,6 +113,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2025',
     toy: true,
+    span: 2,
+    visual: 'vector',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/custom-vector',
   },
   {
@@ -97,6 +125,8 @@ export const projects: Project[] = [
     status: 'completed',
     year: '2025',
     toy: true,
+    span: 4,
+    visual: 'csv',
     url: 'https://github.com/balazsotakomaiya/playground/tree/main/csv-parser',
   },
 ];

@@ -2358,3 +2358,332 @@ table {
     display: none;
   }
 }
+
+/* ─── Featured project (bento) ─── */
+
+/* Althar's cobalt, lifted to read on the dark ground, glows from the
+   top-left corner; the screenshot runs off the bottom-right. */
+.featured-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(85, 99, 255, 0.16), transparent 60%),
+    var(--bg-subtle);
+  transition: border-color 0.25s;
+}
+
+.featured-card:hover {
+  border-color: rgba(85, 99, 255, 0.35);
+}
+
+.featured-mark {
+  width: 18px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.featured-shot {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+  margin-top: 4px;
+  margin-left: 24px;
+  border-top-left-radius: var(--radius);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.featured-card:hover .featured-shot {
+  transform: translate(-4px, -4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-shot,
+  .featured-card:hover .featured-shot {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* The screenshot fills whatever height the tile has, cut from its top. */
+.featured-shot img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 639px) {
+  .featured-shot {
+    margin-left: 20px;
+    min-height: 200px;
+  }
+}
+
+/* ─── Bento tiles ─── */
+
+.bento-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  transition: border-color 0.25s;
+}
+
+.bento-card:hover {
+  border-color: var(--border-hover);
+}
+
+/* The drawing: a band across the top of the tile. */
+.pv {
+  position: relative;
+  height: 128px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 70%),
+    #0d0d0d;
+}
+
+.bento-tall .pv {
+  flex: 1;
+  min-height: 200px;
+}
+
+@media (min-width: 640px) {
+  .bento-side {
+    flex-direction: row-reverse;
+  }
+
+  .bento-side .pv {
+    width: 46%;
+    height: auto;
+    border-bottom: 0;
+    border-left: 1px solid var(--border);
+  }
+
+  .bento-side > div:last-child {
+    flex: 1;
+  }
+}
+
+/* Pupil: a fanned stack of cards. */
+.pv-pupil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pv-card {
+  position: relative;
+  grid-area: 1 / 1;
+  width: 150px;
+  height: 92px;
+  border-radius: 8px;
+  border: 1px solid var(--border-hover);
+  background: #151515;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pv-card-1 {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 10px;
+  background: #1a1a1a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.pv-card-2 { z-index: 2; transform: rotate(-6deg) translate(-6px, 4px); }
+.pv-card-3 { z-index: 1; transform: rotate(-12deg) translate(-12px, 10px); opacity: 0.6; }
+
+.bento-card:hover .pv-card-2 { transform: rotate(-9deg) translate(-12px, 6px); }
+.bento-card:hover .pv-card-3 { transform: rotate(-18deg) translate(-24px, 14px); }
+
+.pv-interval {
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border-hover);
+  color: var(--text-tertiary);
+}
+
+.pv-interval-on {
+  color: var(--text-primary);
+  border-color: #3a3a3a;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Sigil: overlapping avatars, each its own style. */
+.pv-sigil {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #0d0d0d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pv-sigil-a { background: linear-gradient(135deg, #6b6b6b, #2a2a2a); }
+.pv-sigil-b { background: conic-gradient(from 200deg, #3a3a3a, #8a8a8a, #3a3a3a); border-radius: 12px; }
+.pv-sigil-c { background: radial-gradient(circle at 30% 30%, #9a9a9a, #333 70%); }
+.pv-sigil-d { background: repeating-linear-gradient(45deg, #444 0 6px, #2c2c2c 6px 12px); border-radius: 12px; }
+.pv-sigil-e { background: #ededed; color: #111; }
+
+.bento-card:hover .pv-sigil:nth-child(odd) { transform: translateY(-4px); }
+
+/* Octo: a phone with a booking on it, rising out of the tile. */
+.pv-phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 148px;
+  height: 100%;
+  min-height: 180px;
+  padding: 26px 10px 0;
+  border: 1px solid var(--border-hover);
+  border-bottom: 0;
+  border-radius: 22px 22px 0 0;
+  background: #141414;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-card:hover .pv-phone { transform: translateY(-6px); }
+
+.pv-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 40px;
+  height: 9px;
+  margin-left: -20px;
+  border-radius: 999px;
+  background: #0a0a0a;
+}
+
+.pv-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.pv-row-on {
+  border-color: rgba(16, 185, 129, 0.35);
+  color: var(--text-primary);
+}
+
+.pv-check { color: #10b981; }
+
+.pv-pay {
+  margin-top: 4px;
+  padding: 7px 0;
+  border-radius: 8px;
+  background: #ededed;
+  color: #111;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Stopwatch: round buttons. */
+.pv-round {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: var(--text-primary);
+  background: #262626;
+  box-shadow: 0 0 0 2px #0d0d0d, 0 0 0 3px #262626;
+}
+
+.pv-round-go {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.16);
+  box-shadow: 0 0 0 2px #0d0d0d, 0 0 0 3px rgba(16, 185, 129, 0.16);
+}
+
+/* Custom vector: cells in use, and the one push_back fills next. */
+.pv-cell {
+  width: 18px;
+  height: 26px;
+  border-radius: 4px;
+  border: 1px solid var(--border-hover);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.pv-cell-on {
+  background: #2e2e2e;
+  border-color: #3a3a3a;
+}
+
+.pv-cell-next {
+  border-style: dashed;
+  border-color: #4a4a4a;
+}
+
+.bento-card:hover .pv-cell-next {
+  background: #2e2e2e;
+  border-style: solid;
+  border-color: #3a3a3a;
+}
+
+/* CSV: the line, then the table it parses into. */
+.pv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+.pv-table th,
+.pv-table td {
+  padding: 4px 8px;
+  border: 1px solid var(--border-hover);
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.pv-table th {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-card,
+  .pv-sigil,
+  .pv-phone,
+  .pv-cell {
+    transition: none;
+  }
+
+  .bento-card:hover .pv-card-2 { transform: rotate(-6deg) translate(-6px, 4px); }
+  .bento-card:hover .pv-card-3 { transform: rotate(-12deg) translate(-12px, 10px); }
+  .bento-card:hover .pv-sigil,
+  .bento-card:hover .pv-phone { transform: none; }
+}
