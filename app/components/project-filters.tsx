@@ -1,12 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { projects, statusLabels } from 'app/projects/data'
 import type { Project } from 'app/projects/data'
 import { SectionHead } from 'app/components/section-head'
 import { SecretCard } from 'app/components/secret-card'
-import { ProjectVisual } from 'app/components/project-visuals'
+import { FeaturedArt, ProjectVisual } from 'app/components/project-visuals'
 
 type Filter = 'all' | Project['category']
 
@@ -45,7 +44,7 @@ function ProjectCard({ p, className = '', side = false }: { p: Project; classNam
       onMouseMove={trackSpotlight}
       className={`spot-card bento-card ${side ? 'bento-side' : ''} ${p.rows === 2 ? 'bento-tall' : ''} ${className}`}
     >
-      {p.visual && <ProjectVisual name={p.visual} />}
+      {p.visual && p.visual !== 'althar' && <ProjectVisual name={p.visual} />}
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2">
           <StatusDot status={p.status} />
@@ -91,23 +90,12 @@ function ProjectCard({ p, className = '', side = false }: { p: Project; classNam
   )
 }
 
-/* The bento's top tile: the project's own drawing across the full width,
-   shown whole, and the words beneath it as on every other tile. */
+/* The bento's top tile: a drawing made for this site across the full
+   width, and the words beneath it as on every other tile. */
 function FeaturedCard({ p, className = '' }: { p: Project; className?: string }) {
   return (
     <div onMouseMove={trackSpotlight} className={`spot-card featured-card ${className}`}>
-      {p.art && (
-        <div className="featured-art">
-          <Image
-            src={p.art}
-            alt={`${p.title}: one project's work going to agents from four labs, each in its own worktree`}
-            width={1600}
-            height={1000}
-            sizes="(min-width: 680px) 680px, 100vw"
-            className="block w-full h-auto"
-          />
-        </div>
-      )}
+      {p.visual && <FeaturedArt name={p.visual} />}
       <div className="relative px-5 pb-5 sm:px-6 sm:pb-6 sm:flex sm:items-end sm:justify-between sm:gap-8">
         <div className="min-w-0">
           <div className="flex items-center gap-2 mb-3">

@@ -10,18 +10,16 @@ export interface Project {
   openSource?: boolean;
   /** Unannounced: rendered as a dark card the cursor lights like a torch. */
   secret?: boolean;
-  /** The bento's top tile: the full width, with `art` shown whole above the words. */
+  /** The bento's top tile: the full width, with its drawing above the words. */
   featured?: boolean;
   /** Columns out of six this card takes in the bento. Defaults to three. */
   span?: 2 | 3 | 4 | 6;
   /** Rows this card takes in the bento. Defaults to one. */
   rows?: 1 | 2;
   /** The drawing at the top of the card (app/components/project-visuals.tsx). */
-  visual?: 'pupil' | 'sigil' | 'octo' | 'stopwatch' | 'vector' | 'csv';
+  visual?: 'althar' | 'pupil' | 'sigil' | 'octo' | 'stopwatch' | 'vector' | 'csv';
   /** Source code, when it lives somewhere other than `url`. */
   repo?: string;
-  /** A drawing of the project, shown in the featured tile. */
-  art?: string;
   /** The project's own mark, shown in the featured tile. */
   mark?: string;
 }
@@ -52,9 +50,9 @@ export const projects: Project[] = [
     year: '2026',
     openSource: true,
     featured: true,
+    visual: 'althar',
     url: 'https://althar.ai',
     repo: 'https://github.com/AltharIDE/althar',
-    art: '/althar/agents.jpg',
     mark: '/althar/mark.svg',
   },
   {
